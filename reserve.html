@@ -31,74 +31,88 @@
             font-size: 2.5rem;
         }
 
-        
+        /* Navbar */
         nav {
-    
+            background-color: #1c1c1c;
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 1rem 2rem;
-            
-            
-          }
-          nav .header{
+        }
+
+        nav .header {
             font-style: italic;
             color: orange;
             font-weight: bold;
             text-shadow: #000;
-         
-         }
-        
-        
-          nav .logo i {
+        }
+
+        nav .logo i {
             display: flex;
             align-items: center;
             gap: 1rem;
-          }
-        
-          nav .logo .img {
+        }
+
+        nav .logo .img {
             width: 20px;
             height: 20px;
-          }
-        
-          
-        
-          nav .links {
+        }
+
+        nav .links {
             display: flex;
             gap: 1rem;
-          }
-        
-          nav .links .link {
-            
+        }
+
+        nav .links .link {
             font-size: 1.2rem;
             font-weight: 500;
             padding: 0.4rem 1rem;
-            color:white;
+            color: white;
             text-decoration: none;
-          }
-        
-          nav .links .link.hidden {
+        }
+
+        nav .links .link.hidden {
             display: none;
-          }
-        
-          nav .links .active {
-            
-            color:white;
+        }
+
+        nav .links .active {
+            color: white;
             font-weight: bold;
             border-radius: 15px;
             background: orange;
-          }
-        
-          nav .hamburger {
+        }
+
+        nav .hamburger {
             display: none;
             font-size: 1.5rem;
             cursor: pointer;
-          }
+        }
+
+        @media (max-width: 768px) {
+            nav .links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                background-color: #1c1c1c;
+                padding: 1rem;
+            }
+
+            nav .links.active {
+                display: flex;
+            }
+
+            nav .hamburger {
+                display: block;
+                color: orange;
+            }
+        }
 
         /* Reservation Section */
         .reservation-section {
-            
             max-width: 1200px;
             margin: 30px auto;
             display: flex;
@@ -107,10 +121,16 @@
             background-color: #1c1c1c;
             border-radius: 10px;
             box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+            flex-wrap: wrap; /* Allow wrapping for smaller screens */
+        }
+
+        .reservation-form,
+        .image-section {
+            flex: 1;
+            min-width: 300px; /* Ensures elements do not shrink below this width */
         }
 
         .reservation-form {
-            flex: 1;
             padding: 30px;
             border-radius: 10px;
             background-color: #2b2b2b;
@@ -129,7 +149,7 @@
             gap: 15px;
         }
 
-        .reservation-form input, 
+        .reservation-form input,
         .reservation-form select {
             padding: 15px;
             font-size: 1rem;
@@ -154,8 +174,7 @@
         }
 
         .image-section {
-            flex: 1;
-            background-image: url('./Public/wooden-reserved-sign-dining-table-restaurant_36367-579.jpg'); /* Replace with your image URL */
+            background-image: url('./Public/wooden-reserved-sign-dining-table-restaurant_36367-579.jpg');
             background-size: cover;
             background-position: center;
             border-radius: 10px;
@@ -166,6 +185,37 @@
         @media (max-width: 768px) {
             .reservation-section {
                 flex-direction: column;
+                gap: 20px;
+            }
+
+            .reservation-form,
+            .image-section {
+                width: 100%;
+            }
+
+            .image-section {
+                height: 300px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .reservation-section {
+                padding: 15px;
+            }
+
+            .reservation-form h2 {
+                font-size: 1.5rem;
+            }
+
+            .reservation-form input,
+            .reservation-form select {
+                font-size: 0.9rem;
+                padding: 12px;
+            }
+
+            .reservation-form button {
+                font-size: 1rem;
+                padding: 10px;
             }
 
             .image-section {
@@ -219,31 +269,26 @@
             font-size: 0.9rem;
             color: #cccccc;
         }
-
     </style>
 </head>
 <body>
 
     <!-- Navbar -->
     <nav>
-      
         <div class="header">
-           
-          <h2><i class='bx bxl-mastodon'></i>Unique Restaurant</h2>
+            <h2><i class='bx bxl-mastodon'></i>Unique Restaurant</h2>
         </div>
-        <div class="links">
-          <a href="index.html" class="link">Home</a>
-          <a href="About.html"  class="link">About</a>
-          <a href="menu.html"  class="link">Food Menu</a>
-          <a href="contact.html" class="link">Contact</a>
-          <a href="reserve.html"  class="link active">Reserve Table</a>
-          <button class="link hidden" onclick="toggleLinks()">Close</button>
-          <!-- Hamburger Icon -->
+        <div class="links" id="navLinks">
+            <a href="index.html" class="link">Home</a>
+            <a href="About.html" class="link">About</a>
+            <a href="menu.html" class="link">Food Menu</a>
+            <a href="contact.html" class="link">Contact</a>
+            <a href="reserve.html" class="link active">Reserve Table</a>
         </div>
-        <div class="hamburger" id="navbarToggle" onclick="toggleLinks()">
-          &#9776;
+        <div class="hamburger" id="navbarToggle" onclick="toggleNavbar()">
+            &#9776;
         </div>
-      </nav>
+    </nav>
 
     <!-- Main Content -->
     <h1>Reserve Your Table</h1>
@@ -267,10 +312,9 @@
                     <option value="7">7</option>
                     <option value="8">8</option>
                     <option value="9">9</option>
-                    <option value="10">10</option>
+                    <option value="10">10+</option>
                 </select>
-                <input type="datetime-local" id="date" required>
-                <button type="submit">Reserve Now</button>
+                <button type="submit">Find a Table</button>
             </form>
         </div>
 
@@ -279,41 +323,24 @@
     </div>
 
     <!-- Footer -->
-    <footer class="footer">
+    <div class="footer">
         <div class="social-icons">
             <a href="#"><i class="fab fa-facebook-f"></i></a>
             <a href="#"><i class="fab fa-twitter"></i></a>
             <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-linkedin"></i></a>
         </div>
         <ul>
             <li><a href="#">Privacy Policy</a></li>
-            <li><a href="#">Terms of Service</a></li>
-            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">Terms & Conditions</a></li>
         </ul>
-        <p>&copy; 2024 Restaurant. All rights reserved.</p>
-    </footer>
+        <p>© 2024 Unique Restaurant. All rights reserved.</p>
+    </div>
 
-    <!-- JavaScript -->
     <script>
-        // JavaScript for handling the form submission
-        document.getElementById('reservationForm').addEventListener('submit', function (e) {
-            e.preventDefault();
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const phone = document.getElementById('phone').value;
-            const partySize = document.getElementById('partySize').value;
-            const date = document.getElementById('date').value;
-
-            if (name && email && phone && partySize && date) {
-                alert(`Thank you, ${name}. Your table for ${partySize} has been reserved on ${date}!`);
-            } else {
-                alert('Please fill out all fields.');
-            }
-
-            // Reset the form after submission
-            document.getElementById('reservationForm').reset();
-        });
+        function toggleNavbar() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
     </script>
 
 </body>

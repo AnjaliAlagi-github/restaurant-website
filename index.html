@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+    <title>Resto Home</title>
+</head>
+<body>
+    <nav>
+      
+        <div class="header">
+           
+          <h2> <i class='bx bxl-mastodon'></i>Unique Restaurant</h2>
+        </div>
+        <div class="links">
+          <a href="" class="link">Home</a>
+          <a href="About.html"  class="link">About</a>
+          <a href="menu.html"  class="link">Food Menu</a>
+          <a href="contact.html" class="link">Contact</a>
+          <a href="reserve.html"  class="link active">Reserve Table</a>
+          <button class="link hidden" onclick="toggleLinks()">Close</button>
+          <!-- Hamburger Icon -->
+        </div>
+        <div class="hamburger" id="navbarToggle" onclick="toggleLinks()">
+          &#9776;
+        </div>
+      </nav>
+
+      <section class="container">
+        <div  class="left">
+        <h2>Enjoy Our Delicious Meal</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat assumenda vero molestias deserunt velit pariatur, quia quasi odio quod? Harum, minima blanditiis 
+            rem quis soluta tenetur excepturi ad consequuntur</p>
+            <button class="btn" >Book Table</button>
+        </div>
+        <div class="right">
+            <img src="./Public/pikaso_embed.png"/>
+        </div>
+      </section>
+
+      <section class="card-container">
+        <div class="box-row">
+          <div class="box1">
+            <i class='bx bxl-mastodon'></i>
+            <h3>Master Chef</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing eiuseniet quo.</p>
+          </div>
+          <div class="box2">
+            <i class='bx bx-restaurant'></i>
+            <h3>Quality Food</h3>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsa voluptas blanditiis vero quibusdam ipsum ex eos?</p>
+          </div>
+          <div class="box3">
+            <i class='bx bx-cart-add'></i>
+            <h3>Online Order</h3>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. quibusdam ipsum ex eos?</p>
+          </div>
+          <div class="box4">
+            <i class='bx bx-headphone bx-flip-horizontal'></i>
+            <h3>24/7 Services</h3>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.blanditiis eos?</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="next">
+        <div class="block">
+            <div class="images">
+                <img src="./Public/pikaso_embed (1).jpeg" />
+                <img src="./Public/pikaso_embed (2).jpeg"/>
+                <img src="./Public/pikaso_embed (3).jpeg"/>
+                <img src="./Public/pikaso_embed (4).jpeg"/>
+
+            </div>
+               <div class ="main">
+               <h4>About us</h4>
+               <h5>Welcome to  <i class='bx bx-restaurant'></i> Restaurant </h5>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut neque
+                 voluptatibus dolorum suscipit quod sint non autem inventore
+                expedita adipisci fuga saepe eum nihil, obcaecati eos.</p>
+                <button class="btn active">Read More</button>
+                </div>
+        </div>
+      </section>
+         <section class="menucard">
+            <div class="menu">
+            <div class="upper">
+                <h2>Most Popular Items</h2>
+                <div class="banner">
+                    <div class="icon">
+                        <i class='bx bxs-bowl-hot'></i> 
+                      <h2>Special Breakfast</h2>
+                    </div>
+                    <div class="icon">
+                        <i class='bx bxs-dish'></i>
+                      <h2>Best Lunch</h2>
+                    </div>
+                    <div class="icon">
+                        <i class='bx bx-restaurant'></i>
+                      <h2>Fantastic Dinner</h2>
+                    </div>
+                </div>
+
+                <div class="display">
+                    <section class="menu-card">
+                        <div class="container">
+                
+                          
+                 
+                          <div class="menu-grid">
+                            <div class="menu-item">
+                              <div class="menu-img">
+                                <img src="./Public/pikaso_embed (5).jpeg" alt="Dish 1">
+                              </div>
+                              <div class="menu-content">
+                                <h3 class="menu-title">Burger</h3>
+                                <p class="menu-description">Delicious and flavorful Burger.</p>
+                                <div class="menu-bottom">
+                                  <span class="menu-price">100 Rs</span>
+                                  <button class="order-btn">Order Now</button>
+                                </div>
+                              </div>
+                            </div>
+                      
+                            <div class="menu-item">
+                              <div class="menu-img">
+                                <img src="./Public/food-mix-salad-noodles-grillea-chicken-garlic-greena-top-view.jpg" alt="Dish 2">
+                              </div>
+                              <div class="menu-content">
+                                <h3 class="menu-title">Biryani</h3>
+                                <p class="menu-description">Delicious and flavorful Biryani.</p>
+                                <div class="menu-bottom">
+                                  <span class="menu-price">300 Rs</span>
+                                  <button class="order-btn">Order Now</button>
+                                </div>
+                              </div>
+                            </div>
+                      
+                            <div class="menu-item">
+                              <div class="menu-img">
+                                <img src="./Public/pikaso_embed (6).jpeg" alt="Dish 3">
+                              </div>
+                              <div class="menu-content">
+                                <h3 class="menu-title">Frenchfries</h3>
+                                <p class="menu-description">Delicious and flavorful Frenchfries.</p>
+                                <div class="menu-bottom">
+                                  <span class="menu-price">100 Rs</span>
+                                  <button class="order-btn">Order Now</button>
+                                </div>
+                              </div>
+                            </div>
+                      
+                            <div class="menu-item">
+                              <div class="menu-img">
+                                <img src="./Public/pikaso_embed (7).jpeg" alt="Dish 4">
+                              </div>
+                              <div class="menu-content">
+                                <h3 class="menu-title">Pizza</h3>
+                                <p class="menu-description">Delicious and flavorful Pizza.</p>
+                                <div class="menu-bottom">
+                                  <span class="menu-price">280 Rs</span>
+                                  <button class="order-btn">Order Now</button>
+                                </div>
+                              </div>
+                            </div>
+                      
+                            <div class="menu-item">
+                              <div class="menu-img">
+                                <img src="./Public/pikaso_embed (6).jpeg" alt="Dish 5">
+                              </div>
+                              <div class="menu-content">
+                                <h3 class="menu-title">Frenchfries</h3>
+                                <p class="menu-description">Delicious and flavorful dish Frenchfries</p>
+                                <div class="menu-bottom">
+                                  <span class="menu-price">150 Rs</span>
+                                  <button class="order-btn">Order Now</button>
+                                </div>
+                              </div>
+                            </div>
+                      
+                            <div class="menu-item">
+                              <div class="menu-img">
+                                <img src="./Public/pikaso_embed (5).jpeg" alt="">
+                              </div>
+                              <div class="menu-content">
+                                <h3 class="menu-title">Burger</h3>
+                                <p class="menu-description">Delicious and flavorful dish Burger</p>
+                                <div class="menu-bottom">
+                                  <span class="menu-price">200 Rs</span>
+                                  <button class="order-btn">Order Now</button>
+                                </div>
+                              </div>
+                            </div>
+                      
+                            <div class="menu-item">
+                              <div class="menu-img">
+                                <img src="./Public/food-mix-salad-noodles-grillea-chicken-garlic-greena-top-view.jpg" alt="Dish 7">
+                              </div>
+                              <div class="menu-content">
+                                <h3 class="menu-title">Peshwai Rice</h3>
+                                <p class="menu-description">Delicious and flavorful Peshwai Rice.</p>
+                                <div class="menu-bottom">
+                                  <span class="menu-price">350 Rs</span>
+                                  <button class="order-btn">Order Now</button>
+                                </div>
+                              </div>
+                            </div>
+                      
+                            <div class="menu-item">
+                              <div class="menu-img">
+                                <img src="./Public/pikaso_embed (7).jpeg" alt="Dish 8">
+                              </div>
+                              <div class="menu-content">
+                                <h3 class="menu-title">Panner Pizza</h3>
+                                <p class="menu-description">Delicious and flavorful Panner Pizza.</p>
+                                <div class="menu-bottom">
+                                  <span class="menu-price">$17</span>
+                                  <button class="order-btn">Order Now</button>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="menu-item">
+                              <div class="menu-img">
+                                <img src="./Public/pikaso_embed (5).jpeg" alt="">
+                              </div>
+                              <div class="menu-content">
+                                <h3 class="menu-title">Burger</h3>
+                                <p class="menu-description">Delicious and flavorful dish Burger</p>
+                                <div class="menu-bottom">
+                                  <span class="menu-price">200 Rs</span>
+                                  <button class="order-btn">Order Now</button>
+                                </div>
+                              </div>
+                            </div>
+                      
+                            <div class="menu-item">
+                              <div class="menu-img">
+                                <img src="./Public/pikaso_embed (6).jpeg" alt="Dish 9">
+                              </div>
+                              <div class="menu-content">
+                                <h3 class="menu-title">Masala Fries</h3>
+                                <p class="menu-description">Delicious and flavorful Masala Fries</p>
+                                <div class="menu-bottom">
+                                  <span class="menu-price">$18</span>
+                                  <button class="order-btn">Order Now</button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </section>
+                      
+
+
+                </div>
+
+            </div>
+
+            </div>
+         </section>
+
+
+         <section class="reservation" id="contact">
+            <div class="section__container reservation__container">
+              <h3>RESERVATION</h3>
+              <h2 class="section__header">BOOK YOUR TABLE</h2>
+              <form action="/">
+                <input type="text" placeholder="NAME" />
+                <input type="email" placeholder="EMAIL" />
+                <input type="date" placeholder="DATE" />
+                <input type="time" placeholder="TIME" />
+                <input type="number" placeholder="PEOPLE" />
+                <button class="btn" type="submit">FIND TABLE</button>
+              </form>
+            </div>
+            <img
+              src="./Public/penne-pasta-tomato-sauce-with-chicken-tomatoes-wooden-table.jpg"
+              alt="reservation"
+              class="reservation__bg-1"
+            />
+            <img
+              src="./Public/chicken-skewers-with-slices-sweet-peppers-dill.jpg"
+              alt="reservation"
+              class="reservation__bg-2"
+            />
+          </section>
+
+          <section class="reviews" id="reviews">
+            <div class="reviews__container">
+                <h2 class="reviews__header">What Our Customers Say</h2>
+                <div class="reviews__slider">
+                    <div class="reviews__cards">
+                        <div class="review-card">
+                            <div class="review-card__rating">
+                                ★★★★☆
+                            </div>
+                            <p class="review-card__text">"Excellent service and delicious food! Highly recommend."</p>
+                            <p class="review-card__author">- Asawari sharma</p>
+                        </div>
+                        <div class="review-card">
+                            <div class="review-card__rating">
+                                ★★★★★
+                            </div>
+                            <p class="review-card__text">"A fantastic experience, will definitely come back again."</p>
+                            <p class="review-card__author">- Ajay rathod</p>
+                        </div>
+                        <div class="review-card">
+                            <div class="review-card__rating">
+                                ★★★☆☆
+                            </div>
+                            <p class="review-card__text">"Test is excellent and Quality food"</p>
+                            <p class="review-card__author">- kirti .k</p>
+                        </div>
+                        <div class="review-card">
+                          <div class="review-card__rating">
+                              ★★★☆☆
+                          </div>
+                          <p class="review-card__text">"Good food but service could be improved."</p>
+                          <p class="review-card__author">- varun</p>
+                      </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+          
+      
+        <div class="footer">
+          <div class="text">
+              <h3>About Us</h3>
+              <p>Lorem ipsum dolor sit amet consectetur <br>
+               adipisicing elit. Odit consequuntur par <br>
+                velit accusamus, animi ullam harum dolores <br> libero cum suscipit. Molestiae, commodi.</p>
+
+          </div>
+          <div class="text">
+              <h3>Our Food</h3>
+              <p>Quality</p>
+              <p>Affordable</p>
+              <p>Best Price</p>
+              <p>Low Cost</p>
+
+          </div>
+          <div class="text">
+              <h3>Offers</h3>
+              <p>20% OFF</p>
+              <p>Free 1st meal</p>
+              <p>quality</p>
+              <p>Affordable</p>
+
+          </div>
+          <div class="text">
+              <h3>Connect Us</h3>
+              <p>Linked In</p>
+              <p>Facebook</p>
+              <p>Instagram</p>
+              <p>Twitter</p>
+
+          </div>
+      </div>
+  </div>
+          <script src="https://unpkg.com/scrollreveal"></script>
+          <script src="main.js"></script>
+        </body>
+      </html>
+        
+</body>
+</html>

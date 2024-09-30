@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <title>Contact Us - Restaurant</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
+        @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css');
+
+        * {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+            font-family: Arial sans-serif;
+        }
+
+        body {
+            background-color: #f4f4f4;
+            
+        }
+
+        nav {
+    
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            background:black;
+            
+            
+          }
+          nav .header{
+            font-style: italic;
+            color: orange;
+            font-weight: bold;
+            text-shadow: #000;
+         
+         }
+        
+        
+          nav .logo i {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+          }
+        
+          nav .logo .img {
+            width: 20px;
+            height: 20px;
+          }
+        
+          
+        
+          nav .links {
+            display: flex;
+            gap: 1rem;
+          }
+        
+          nav .links .link {
+            
+            font-size: 1.2rem;
+            font-weight: 500;
+            padding: 0.4rem 1rem;
+            color:white;
+            text-decoration: none;
+          }
+          h2{
+            color: orange;
+            font-size: 1.5rem;
+          }
+        
+          nav .links .link.hidden {
+            display: none;
+          }
+        
+          nav .links .active {
+            
+            color:white;
+            font-weight: bold;
+            border-radius: 15px;
+            background: orange;
+          }
+        
+          nav .hamburger {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+          }
+
+
+        .contact-header {
+            text-align: center;
+            padding: 3rem;
+            background: url('https://source.unsplash.com/1600x500/?restaurant,food') no-repeat center;
+            background-size: cover;
+            color: white;
+            position: relative;
+        }
+
+        .contact-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(34, 34, 34, 0.7);
+        }
+
+        .contact-header h1 {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Contact Section Layout */
+        .contact-section {
+            margin: 3rem auto;
+            padding: 2rem;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Contact Info (3-box design) */
+        .contact-info {
+            width: 45%;
+        }
+
+        .info-box {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+            margin-bottom: 1.5rem;
+            padding: 1.5rem;
+            display: flex;
+            align-items: center;
+            transition: all 0.3s ease;
+            gap: 1rem;
+            color: #111;
+        }
+
+        .info-box:hover {
+            transform: translateY(-5px);
+            background-color: #FF6600;
+            color: white;
+        }
+
+        .info-box i {
+            font-size: 2rem; /* Reduced icon size */
+            color: #FF6600;
+            transition: color 0.3s ease;
+        }
+
+        .info-box:hover i {
+            color: white;
+        }
+
+        /* Contact Form Styling */
+        .contact-form-container {
+            width: 50%;
+            background-color: #222;
+            padding: 2rem;
+            border-radius: 10px;
+        }
+
+        .contact-form-container h2 {
+            color: #FF6600;
+            font-size: 1.8rem; /* Reduced font size */
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-form-container form input, 
+        .contact-form-container form textarea {
+            width: 100%;
+            padding: 0.8rem; /* Reduced padding */
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem; /* Reduced font size */
+            background-color: #f9f9f9;
+            border: none;
+            border-radius: 5px;
+            color: #333;
+        }
+
+        .contact-form-container form button {
+            background-color: #FF6600;
+            color: white;
+            padding: 0.8rem 1.5rem; /* Reduced padding */
+            font-size: 1rem; /* Reduced font size */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .contact-form-container form button:hover {
+            background-color: #fff;
+            color: #FF6600;
+            border: 1px solid #FF6600;
+        }
+
+       /* Feedback Section Styling */
+.feedback-section {
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem;
+    background-color: #222;
+    color: white;
+    border-radius: 10px;
+    margin-top: 4rem;
+    flex-wrap: wrap; /* Allow wrapping for smaller screens */
+}
+
+.feedback-section form {
+    width: 48%; /* Default width for larger screens */
+    min-width: 300px; /* Set a minimum width for smaller screens */
+}
+
+.feedback-section form input, 
+.feedback-section form textarea {
+    width: 100%; /* Full width for inputs */
+    padding: 0.8rem; /* Reduced padding */
+    margin-bottom: 1rem;
+    border-radius: 5px;
+    border: none;
+    font-size: 0.9rem; /* Reduced font size */
+}
+
+.feedback-image {
+    width: 48%; /* Default width for larger screens */
+    min-width: 300px; /* Set a minimum width for smaller screens */
+    background: url(./Public/receptionists-elegant-suits-work-hours.jpg) no-repeat center;
+    background-size: cover;
+    border-radius: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .feedback-section {
+        flex-direction: column; /* Stack items vertically */
+        align-items: center; /* Center align items */
+        padding: 1rem; /* Reduced padding */
+    }
+
+    .feedback-section form {
+        width: 100%; /* Full width on smaller screens */
+        margin-bottom: 1rem; /* Space between stacked elements */
+    }
+
+    .feedback-image {
+        height: 200px; /* Fixed height for image */
+        width: 100%; /* Full width for image */
+        margin-top: 1rem; /* Space above the image */
+    }
+}
+
+@media (max-width: 480px) {
+    .feedback-section {
+        padding: 0.5rem; /* Further reduce padding for very small screens */
+    }
+
+    .feedback-section form h2 {
+        font-size: 1.5rem; /* Adjust heading size */
+    }
+
+    .feedback-section form input, 
+    .feedback-section form textarea {
+        font-size: 0.8rem; /* Smaller font size */
+    }
+
+    .feedback-section form button {
+        font-size: 0.9rem; /* Smaller button font size */
+    }
+}
+
+        .feedback-section form button {
+            background-color: #FF6600;
+            padding: 0.8rem;
+            font-size: 1rem; /* Reduced font size */
+            border-radius: 5px;
+            cursor: pointer;
+            border: none;
+        }
+
+        
+        /* Footer Styling */
+        footer {
+            background-color: #111;
+            padding: 1.5rem;
+            color: white;
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        footer a {
+            color: #FF6600;
+            text-decoration: none;
+        }
+        footer p {
+            color: white;
+        }
+
+        footer a:hover {
+            color: white;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .contact-section {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .contact-info, .contact-form-container {
+                width: 100%;
+                margin-bottom: 2rem;
+            }
+
+            .feedback-section {
+                flex-direction: column;
+            }
+
+            .feedback-image {
+                height: 200px;
+                margin-top: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<nav>
+    
+    <div class="header">
+           
+        <h2><i class='bx bxl-mastodon'></i>Unique Restaurant</h2>
+      </div>
+      <div class="links">
+        <a href="index.html" class="link">Home</a>
+        <a href="About.html"  class="link">About</a>
+        <a href="menu.html"  class="link">Food Menu</a>
+        <a href="contact.html" class="link">Contact</a>
+        <a href="reserve.html"  class="link active">Reserve Table</a>
+        <button class="link hidden" onclick="toggleLinks()">Close</button>
+        <!-- Hamburger Icon -->
+      </div>
+      <div class="hamburger" id="navbarToggle" onclick="toggleLinks()">
+        &#9776;
+      </div>
+    </nav>
+ 
+    <section class="contact-section">
+        <div class="contact-info">
+            <div class="info-box">
+                <i class="fas fa-phone-alt"></i>
+                <div>
+                    <h3>Phone</h3>
+                    <p>+1 (555) 123-4567</p>
+                </div>
+            </div>
+            <div class="info-box">
+                <i class="fas fa-map-marker-alt"></i>
+                <div>
+                    <h3>Address</h3>
+                    <p>Unique Restaurant, Food City, Pune</p>
+                </div>
+            </div>
+            <div class="info-box">
+                <i class="fas fa-envelope"></i>
+                <div>
+                    <h3>Email</h3>
+                    <p>contact@uniqueresto.com</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="contact-form-container">
+            <h2>Get in Touch</h2>
+            <form id="contactForm">
+                <input type="text" id="name" placeholder="Your Name" required>
+                <input type="email" id="email" placeholder="Your Email" required>
+                <textarea id="message" rows="5" placeholder="Your Message" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Feedback Section -->
+    <section class="feedback-section">
+        <form>
+            <h2>Your Feedback</h2>
+            <input type="text" placeholder="Your Name" required>
+            <textarea rows="4" placeholder="Your Feedback" required></textarea>
+            <button type="submit">Submit Feedback</button>
+        </form>
+        <div class="feedback-image"></div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Unique Restaurant | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+    </footer>
+
+</body>
+</html>

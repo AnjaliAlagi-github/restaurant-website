@@ -23,70 +23,62 @@
 
      
     nav {
-    
+        background-color: #1c1c1c;
         margin: 0 auto;
         display: flex;
         justify-content: space-between;
         align-items: center;
         padding: 1rem 2rem;
-        
-        
-      }
-      nav .header{
+    }
+
+    nav .header {
         font-style: italic;
         color: orange;
         font-weight: bold;
         text-shadow: #000;
-    
-        
-        
-     }
-    
-    
-      nav .logo i {
+    }
+
+    nav .logo i {
         display: flex;
         align-items: center;
         gap: 1rem;
-      }
-    
-      nav .logo .img {
+    }
+
+    nav .logo .img {
         width: 20px;
         height: 20px;
-      }
-    
-      
-    
-      nav .links {
+    }
+
+    nav .links {
         display: flex;
         gap: 1rem;
-      }
-    
-      nav .links .link {
-        
+    }
+
+    nav .links .link {
         font-size: 1.2rem;
         font-weight: 500;
         padding: 0.4rem 1rem;
-        color:white;
+        color: white;
         text-decoration: none;
-      }
-    
-      nav .links .link.hidden {
+    }
+
+    nav .links .link.hidden {
         display: none;
-      }
-    
-      nav .links .active {
-        
-        color:white;
+    }
+
+    nav .links .active {
+        color: white;
         font-weight: bold;
         border-radius: 15px;
         background: orange;
-      }
-    
-      nav .hamburger {
+    }
+
+    nav .hamburger {
         display: none;
         font-size: 1.5rem;
         cursor: pointer;
-      }
+    }
+
 
     
     header.about-header {
@@ -263,25 +255,22 @@
 </head>
 <body>
    
-        <nav>
-      
-            <div class="header">
-               
-              <h2> <i class='bx bxl-mastodon'></i>Unique Restaurant</h2>
-            </div>
-            <div class="links">
-              <a href="" class="link">Home</a>
-              <a href="About.html"  class="link">About</a>
-              <a href="menu.html"  class="link">Food Menu</a>
-              <a href="contact.html" class="link">Contact</a>
-              <a href="reserve.html"  class="link active">Reserve Table</a>
-              <button class="link hidden" onclick="toggleLinks()">Close</button>
-              <!-- Hamburger Icon -->
-            </div>
-            <div class="hamburger" id="navbarToggle" onclick="toggleLinks()">
-              &#9776;
-            </div>
-          </nav>
+    <nav>
+        <div class="header">
+            <h2><i class='bx bxl-mastodon'></i>Unique Restaurant</h2>
+        </div>
+        <div class="links" id="navLinks">
+            <a href="index.html" class="link">Home</a>
+            <a href="About.html" class="link">About</a>
+            <a href="menu.html" class="link">Food Menu</a>
+            <a href="contact.html" class="link">Contact</a>
+            <a href="reserve.html" class="link active">Reserve Table</a>
+        </div>
+        <div class="hamburger" id="navbarToggle" onclick="toggleNavbar()">
+            &#9776;
+        </div>
+    </nav>
+
           <header class="about-header">
         <h1>About Us</h1>
         <p>Discover our story and what makes us unique.</p>
@@ -356,8 +345,7 @@
             </div>
         </div>
     </section>
-
-  <script>
+    <script>
         function toggleNavbar() {
             const navLinks = document.getElementById('navLinks');
             navLinks.classList.toggle('active');

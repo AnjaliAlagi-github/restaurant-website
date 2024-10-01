@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Order Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+       /* General Body Styling */
+body {
+    background-color: #000;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #111;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Navigation Styling */
+nav a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 18px;
+    display: inline-block;
+}
+
+nav a:hover {
+    color: #ff4500;
+    transition: color 0.3s ease;
+}
+
+/* Main Container */
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+/* Sections: Left & Right */
+.left-section, .right-section {
+    flex: 1;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.left-section {
+    border-right: 1px solid #444;
+    min-width: 280px; /* Minimum width for responsiveness */
+}
+
+/* Styling for Sections */
+.section {
+    margin-bottom: 30px;
+}
+
+h2 {
+    margin-bottom: 15px;
+    font-size: 24px;
+}
+
+.order-button, .coupon-button {
+    background-color: #ff4500;
+    color: #fff;
+    border: none;
+    padding: 12px 25px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+.order-button:hover, .coupon-button:hover {
+    background-color: #e63900;
+}
+
+.map {
+    width: 100%;
+    height: 300px;
+    margin-top: 20px;
+}
+
+/* Coupon Styling */
+.coupons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    flex-wrap: wrap; /* Allows wrapping for responsiveness */
+}
+
+.coupon {
+    background-color: #444;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    flex: 1;
+    margin: 10px;
+    min-width: 200px; /* Minimum width for responsive coupons */
+}
+
+.coupon h3 {
+    margin: 10px 0;
+}
+
+/* Advertisement Styling */
+.advertisement {
+    background-color: #333;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.advertisement h3 {
+    margin: 10px 0;
+    color: #ff4500;
+}
+
+/* Footer Styling */
+.footer {
+    background-color: #111;
+    text-align: center;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+/* Hidden Sections */
+.hidden {
+    display: none;
+}
+
+/* Input & Textarea Styling */
+textarea {
+    width: calc(100% - 20px);
+    height: 80px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #444;
+    background-color: #fff; /* White background for better readability */
+    color: #000;
+    resize: none;
+}
+
+input[type="text"], input[type="number"], select {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #444;
+    background-color: #fff;
+    color: #000;
+}
+
+/* Payment Section */
+.payment-section {
+    margin-top: 20px;
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column; /* Stack sections vertically on smaller screens */
+    }
+
+    .left-section {
+        border-right: none; /* Remove border for mobile */
+        margin-bottom: 20px;
+    }
+
+    nav a {
+        display: block; /* Stack navigation items vertically */
+        margin: 10px 0;
+    }
+
+    .order-button, .coupon-button {
+        font-size: 14px;
+        padding: 10px 20px;
+    }
+
+    h2 {
+        font-size: 20px; /* Reduce size of headings on smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .coupon {
+        flex: 1 1 100%; /* Make each coupon take full width on small screens */
+        margin: 10px 0;
+    }
+
+    textarea, input[type="text"], input[type="number"], select {
+        width: calc(100% - 20px);
+    }
+
+    h2 {
+        font-size: 18px;
+    }
+
+    .order-button, .coupon-button {
+        padding: 8px 16px;
+    }
+}
+</style>
+
+</head>
+<body>
+
+<header>
+    <h1>Online Order Page</h1>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="menu.html">Menu</a>
+    
+        <a href="#">Online Order</a>
+        <a href="reserve.html">Reserve Table</a>
+    </nav>
+</header>
+
+<div class="container">
+    <div class="left-section">
+        <div class="section">
+            <h2>View Order Details</h2>
+            <button class="order-button" onclick="showOrderDetails()">View Order Details</button>
+            <div id="orderDetails" style="display:none; margin-top: 10px;">
+                <p>Order ID: 12345</p>
+                <p>Items: Pizza, Pasta</p>
+                <p>Total: $30.00</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Add to Cart</h2>
+            <button class="order-button" onclick="addToCart()">Add to Cart</button>
+            <div id="cartItems" style="display:none; margin-top: 10px;">
+                <p>1x Pizza</p>
+                <p>1x Pasta</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Pickup Time</h2>
+            <input type="time" id="pickupTime">
+        </div>
+
+        <div class="section">
+            <h2>Pickup Address</h2>
+            <textarea placeholder="Enter your address" id="pickupAddress"></textarea>
+        </div>
+
+        <!-- Payment Mode Section Below Address -->
+        <div class="section payment-section">
+            <h2>Payment Mode</h2>
+            <select id="paymentMode">
+                <option value="credit">Credit Card</option>
+                <option value="debit">Debit Card</option>
+                <option value="Cash On Delivery">Cash On Delivery</option>
+            </select>
+
+            <div class="payment-details hidden">
+                <input type="text" placeholder="Cardholder Name" id="cardName">
+                <input type="number" placeholder="Card Number" id="cardNumber">
+               
+                
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="map">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.835434509561!2d144.95373531531676!3d-37.81627997975153!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f9e1e9b%3A0x5045675218ceed0!2sYour%20Location%20Name!5e0!3m2!1sen!2sau!4v1600000000000!5m2!1sen!2sau" 
+                    width="100%" 
+                    height="300" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy">
+                </iframe>
+            </div>
+        </div>
+    </div>
+
+    <div class="right-section">
+        <h2>Order Now</h2>
+        <div class="section">
+            <h3>Choose Your Favorite Food</h3>
+            <button class="order-button" onclick="openAccountSection('Pizza')">Order Pizza</button>
+            <button class="order-button" onclick="openAccountSection('Burger')">Order Burger</button>
+        </div>
+
+        <h2>Latest Deals</h2>
+        <p>Check out our limited-time offers!</p>
+        <p>Order now and get a free dessert with any main course! 🍰</p>
+
+        <h2>Coupons</h2>
+        <div class="coupons">
+            <div class="coupon">
+                <h3>50% Off</h3>
+                <button class="coupon-button">Get Coupon</button>
+            </div>
+            <div class="coupon">
+                <h3>20% Off</h3>
+                <button class="coupon-button">Get Coupon</button>
+            </div>
+        </div>
+
+        <div class="advertisement">
+            <h3>Nearby Food Advertisements</h3>
+            <p><strong>Delicious Pizza:</strong> Enjoy 30% Off on your first order! 🍕</p>
+            <p><strong>Spicy Pasta:</strong> Free garlic bread with every pasta! 🍝</p>
+            <p><strong>Burger Shack:</strong> Buy 1 Get 1 Free on all burgers! 🍔</p>
+            <p><strong>Sushi Spot:</strong> 15% Off Sushi Platters! 🍣</p>
+        </div>
+    </div>
+</div>
+
+<div class="footer">
+    <p>&copy; 2024 Your Restaurant. All Rights Reserved.</p>
+</div>
+
+<script>
+    function openAccountSection(food) {
+        const accountSection = document.getElementById("accountSection");
+        accountSection.classList.remove("hidden");
+
+        const paymentSection = document.querySelector(".payment-section");
+        const addressSection = document.querySelector(".address-section");
+        
+        paymentSection.classList.add("hidden");
+        addressSection.classList.add("hidden");
+
+        // Automatically show the address input and payment mode fields
+        setTimeout(() => {
+            paymentSection.classList.remove("hidden");
+            addressSection.classList.remove("hidden");
+        }, 1000);
+        
+        alert("You have selected to order " + food + ". Please log in to continue.");
+    }
+
+    function login() {
+        const username = document.getElementById("username").value;
+        const password = document.getElementById("password").value;
+
+        // Here you can add your login validation logic
+        if (username && password) {
+            alert("Logged in successfully! You can now proceed to payment.");
+        } else {
+            alert("Please enter valid login details.");
+        }
+    }
+
+    function showOrderDetails() {
+        const orderDetails = document.getElementById("orderDetails");
+        orderDetails.style.display = orderDetails.style.display === "none" ? "block" : "none";
+    }
+
+    function addToCart() {
+        const cartItems = document.getElementById("cartItems");
+        cartItems.style.display = cartItems.style.display === "none" ? "block" : "none";
+    }
+
+    document.getElementById("paymentMode").addEventListener("change", function() {
+        const paymentDetails = document.querySelector(".payment-details");
+        if (this.value === "credit" || this.value === "debit") {
+            paymentDetails.classList.remove("hidden");
+        } else {
+            paymentDetails.classList.add("hidden");
+        }
+    });
+</script>
+
+</body>
+</html>

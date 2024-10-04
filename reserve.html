@@ -13,7 +13,7 @@
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: Arial sans-serif;
+            font-family: Arial, sans-serif;
         }
 
         body {
@@ -31,14 +31,14 @@
             font-size: 2.5rem;
         }
 
-        /* Navbar */
         nav {
-            background-color: #1c1c1c;
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 1rem 2rem;
+            background: black;
+            position: relative; /* Position relative for absolute positioning of links */
         }
 
         nav .header {
@@ -54,14 +54,22 @@
             gap: 1rem;
         }
 
-        nav .logo .img {
-            width: 20px;
-            height: 20px;
-        }
-
         nav .links {
             display: flex;
             gap: 1rem;
+            transition: max-height 0.3s ease; /* Smooth transition for navbar */
+        }
+
+        nav .links.active {
+            display: flex; /* Show links when toggled */
+            max-height: 300px; /* Adjust max height to show links */
+            overflow: hidden; /* Hide overflow */
+            flex-direction: column; /* Stack links vertically */
+            position: absolute; /* Position relative to navbar */
+            top: 100%; /* Below the navbar */
+            left: 0; /* Align to left */
+            background: black; /* Match navbar background */
+            z-index: 1; /* Place above other elements */
         }
 
         nav .links .link {
@@ -72,8 +80,9 @@
             text-decoration: none;
         }
 
-        nav .links .link.hidden {
-            display: none;
+        h2 {
+            color: orange;
+            font-size: 1.5rem;
         }
 
         nav .links .active {
@@ -89,28 +98,6 @@
             cursor: pointer;
         }
 
-        @media (max-width: 768px) {
-            nav .links {
-                display: none;
-                flex-direction: column;
-                width: 100%;
-                position: absolute;
-                top: 70px;
-                left: 0;
-                background-color: #1c1c1c;
-                padding: 1rem;
-            }
-
-            nav .links.active {
-                display: flex;
-            }
-
-            nav .hamburger {
-                display: block;
-                color: orange;
-            }
-        }
-
         /* Reservation Section */
         .reservation-section {
             max-width: 1200px;
@@ -121,16 +108,10 @@
             background-color: #1c1c1c;
             border-radius: 10px;
             box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
-            flex-wrap: wrap; /* Allow wrapping for smaller screens */
-        }
-
-        .reservation-form,
-        .image-section {
-            flex: 1;
-            min-width: 300px; /* Ensures elements do not shrink below this width */
         }
 
         .reservation-form {
+            flex: 1;
             padding: 30px;
             border-radius: 10px;
             background-color: #2b2b2b;
@@ -149,7 +130,7 @@
             gap: 15px;
         }
 
-        .reservation-form input,
+        .reservation-form input, 
         .reservation-form select {
             padding: 15px;
             font-size: 1rem;
@@ -174,7 +155,8 @@
         }
 
         .image-section {
-            background-image: url('./Public/wooden-reserved-sign-dining-table-restaurant_36367-579.jpg');
+            flex: 1;
+            background-image: url('./Public/wooden-reserved-sign-dining-table-restaurant_36367-579.jpg'); /* Replace with your image URL */
             background-size: cover;
             background-position: center;
             border-radius: 10px;
@@ -185,41 +167,25 @@
         @media (max-width: 768px) {
             .reservation-section {
                 flex-direction: column;
-                gap: 20px;
-            }
-
-            .reservation-form,
-            .image-section {
-                width: 100%;
-            }
-
-            .image-section {
-                height: 300px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .reservation-section {
-                padding: 15px;
-            }
-
-            .reservation-form h2 {
-                font-size: 1.5rem;
-            }
-
-            .reservation-form input,
-            .reservation-form select {
-                font-size: 0.9rem;
-                padding: 12px;
-            }
-
-            .reservation-form button {
-                font-size: 1rem;
-                padding: 10px;
             }
 
             .image-section {
                 height: 200px;
+            }
+
+          
+            nav .links {
+                display: none; /* Hide links by default on mobile */
+                flex-direction: column; /* Stack links vertically */
+                width: 100%; /* Full width for links */
+            }
+
+            nav .hamburger {
+                display: block; /* Show hamburger icon */
+            }
+
+            nav .links.active {
+                display: flex; /* Show links when toggled */
             }
         }
 
@@ -269,6 +235,7 @@
             font-size: 0.9rem;
             color: #cccccc;
         }
+
     </style>
 </head>
 <body>
@@ -278,6 +245,9 @@
         <div class="header">
             <h2><i class='bx bxl-mastodon'></i>Unique Restaurant</h2>
         </div>
+        <div class="hamburger" id="hamburger">
+            &#9776;
+        </div>
         <div class="links" id="navLinks">
             <a href="index.html" class="link">Home</a>
             <a href="About.html" class="link">About</a>
@@ -285,11 +255,7 @@
             <a href="contact.html" class="link">Contact</a>
             <a href="reserve.html" class="link active">Reserve Table</a>
         </div>
-        <div class="hamburger" id="navbarToggle" onclick="toggleNavbar()">
-            &#9776;
-        </div>
     </nav>
-
     <!-- Main Content -->
     <h1>Reserve Your Table</h1>
 
@@ -312,9 +278,10 @@
                     <option value="7">7</option>
                     <option value="8">8</option>
                     <option value="9">9</option>
-                    <option value="10">10+</option>
+                    <option value="10">10</option>
                 </select>
-                <button type="submit">Find a Table</button>
+                <input type="datetime-local" id="date" required>
+                <button type="submit">Reserve Now</button>
             </form>
         </div>
 
@@ -323,7 +290,7 @@
     </div>
 
     <!-- Footer -->
-    <div class="footer">
+    <footer class="footer">
         <div class="social-icons">
             <a href="#"><i class="fab fa-facebook-f"></i></a>
             <a href="#"><i class="fab fa-twitter"></i></a>
@@ -331,17 +298,21 @@
         </div>
         <ul>
             <li><a href="#">Privacy Policy</a></li>
-            <li><a href="#">Terms & Conditions</a></li>
+            <li><a href="#">Terms of Service</a></li>
         </ul>
-        <p>© 2024 Unique Restaurant. All rights reserved.</p>
-    </div>
+        <p>&copy; 2024 Unique Restaurant. All Rights Reserved.</p>
+    </footer>
 
     <script>
-        function toggleNavbar() {
+    
+            const hamburger = document.getElementById('hamburger');
             const navLinks = document.getElementById('navLinks');
-            navLinks.classList.toggle('active');
-        }
-    </script>
+    
+            hamburger.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+            });
+        </script>
+    
 
 </body>
 </html>

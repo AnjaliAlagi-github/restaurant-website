@@ -1,267 +1,259 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
-    
-    <title>About</title>
-</head>
-<style>
-    * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-        font-family: Arial sans-serif;
-    }
-    
-    body {
-        background-color: #000;
-        color: white;
-        line-height: 1.6;
-    }
+    <title>About Us | Restaurant</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
 
-     
-    nav {
-        background-color: #1c1c1c;
-        margin: 0 auto;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 1rem 2rem;
-    }
+        body {
+            background-color: #000;
+            color: white;
+            line-height: 1.6;
+        }
 
-    nav .header {
-        font-style: italic;
-        color: orange;
-        font-weight: bold;
-        text-shadow: #000;
-    }
+        nav {
+            background-color: #1c1c1c;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
 
-    nav .logo i {
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-    }
+        nav .header {
+            font-style: italic;
+            color: orange;
+            font-weight: bold;
+            text-shadow: #000;
+        }
 
-    nav .logo .img {
-        width: 20px;
-        height: 20px;
-    }
+        nav .logo i {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
 
-    nav .links {
-        display: flex;
-        gap: 1rem;
-    }
+        nav .links {
+            display: flex;
+            gap: 1rem;
+        }
 
-    nav .links .link {
-        font-size: 1.2rem;
-        font-weight: 500;
-        padding: 0.4rem 1rem;
-        color: white;
-        text-decoration: none;
-    }
+        nav .links .link {
+            font-size: 1.2rem;
+            font-weight: 500;
+            padding: 0.4rem 1rem;
+            color: white;
+            text-decoration: none;
+        }
 
-    nav .links .link.hidden {
-        display: none;
-    }
+        nav .links .active {
+            color: white;
+            font-weight: bold;
+            border-radius: 15px;
+            background: orange;
+        }
 
-    nav .links .active {
-        color: white;
-        font-weight: bold;
-        border-radius: 15px;
-        background: orange;
-    }
+        nav .hamburger {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
 
-    nav .hamburger {
-        display: none;
-        font-size: 1.5rem;
-        cursor: pointer;
-    }
-
-
-    
-    header.about-header {
-        margin-top: 20px;
-        background-color: white;
-        padding: 50px 20px;
-        text-align: center;
-    }
-    
-    header.about-header h1 {
-        color: orange;
-        font-size: 3rem;
-        margin-bottom: 10px;
-    }
-    
-    header.about-header p {
-        font-size: 1.2rem;
-        margin-bottom: 0;
-        color: white;
-        background-color: orange;
-    }
-    
-    .about-story {
-        display: flex;
-        justify-content: center;
-        
-        padding: 50px 20px;
-        flex-wrap: wrap;
-        background-color: white;
-        color: black;
-
-    }
-    
-    .image-container img {
-        width: 100%;
-        max-width: 500px;
-        border-radius: 10px;
-    }
-    
-    .text-container {
-        max-width: 600px;
-        padding: 20px;
-    }
-    
-    .text-container h2 {
-        font-size: 2rem;
-        color: #FF6600;
-        margin-bottom: 10px;
-    }
-    
-    .text-container p {
-        font-size: 1.1rem;
-        margin-bottom: 20px;
-        color: black;
-    }
-    
-    .chef-section {
-
-        text-align: center;
-        background-color: white;
-        padding: 50px 20px;
-    }
-    
-    .chef-section h2 {
-        font-size: 2.5rem;
-        color: orange;
-        margin-bottom: 40px;
-    }
-    
-    .chefs-container {
-        display: flex;
-        justify-content: space-around;
-        flex-wrap: wrap;
-    }
-    
-    .chef-card {
-        max-width: 250px;
-        text-align: center;
-        cursor: pointer;
-        margin: 20px;
-        position: relative;
-    }
-    
-    .chef-card img {
-        width: 100%;
-        height: 250px;
-        object-fit: cover;
-        border-radius: 10px;
-    }
-    
-    .chef-card h3 {
-        color: #FF6600;
-        font-size: 1.5rem;
-        margin: 10px 0;
-    }
-    
-    .chef-card p {
-        color: black;
-    }
-    
-    .chef-bio {
-        
-        padding: 10px;
-        margin-top: 10px;
-        font-size: 0.9rem;
-    }
-    
-    .values-section {
-        padding: 50px 20px;
-        background-color: black;
-        color: white;
-        text-align: center;
-    }
-    
-    .values-section h2 {
-        font-size: 2.5rem;
-        color: #FF6600;
-        margin-bottom: 30px;
-    }
-    
-    .values-container {
-        display: flex;
-        justify-content: space-around;
-        flex-wrap: wrap;
-    }
-    
-    .value-item {
-        max-width: 200px;
-        text-align: center;
-        margin: 20px;
-    }
-    
-    .value-item i {
-        font-size: 2.5rem;
-        color: #FF6600;
-        margin-bottom: 10px;
-    }
-    
-    .value-item h3 {
-        font-size: 1.3rem;
-        color: #FF6600;
-        margin-bottom: 10px;
-    }
-    
-    .value-item p {
-        color: white;
-        font-size: 1rem;
-    }
-    
-    @media (max-width: 768px) {
-        .about-story {
-            flex-direction: column;
+        header.about-header {
+            margin-top: 20px;
+            background-color: white;
+            padding: 50px 20px;
             text-align: center;
         }
-    
-        .chef-card, .value-item {
-            width: 90%;
-            margin-bottom: 20px;
+
+        header.about-header h1 {
+            color: orange;
+            font-size: 3rem;
+            margin-bottom: 10px;
         }
-    }
-    
-</style>
 
-<body>
-    <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+        header.about-header p {
+            font-size: 1.2rem;
+            margin-bottom: 0;
+            color: white;
+            background-color: orange;
+        }
 
-    <title>About Us | Restaurant</title>
-    <link rel="stylesheet" href="style.css">
+        .about-story {
+            display: flex;
+            justify-content: center;
+            padding: 50px 20px;
+            flex-wrap: wrap;
+            background-color: white;
+            color: black;
+        }
+
+        .image-container img {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 10px;
+        }
+
+        .text-container {
+            max-width: 600px;
+            padding: 20px;
+        }
+
+        .text-container h2 {
+            font-size: 2rem;
+            color: #FF6600;
+            margin-bottom: 10px;
+        }
+
+        .text-container p {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            color: black;
+        }
+
+        .chef-section {
+            text-align: center;
+            background-color: white;
+            padding: 50px 20px;
+        }
+
+        .chef-section h2 {
+            font-size: 2.5rem;
+            color: orange;
+            margin-bottom: 40px;
+        }
+
+        .chefs-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .chef-card {
+            max-width: 250px;
+            text-align: center;
+            cursor: pointer;
+            margin: 20px;
+            position: relative;
+        }
+
+        .chef-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .chef-card h3 {
+            color: #FF6600;
+            font-size: 1.5rem;
+            margin: 10px 0;
+        }
+
+        .chef-card p {
+            color: black;
+        }
+
+        .chef-bio {
+            padding: 10px;
+            margin-top: 10px;
+            font-size: 0.9rem;
+        }
+
+        .values-section {
+            padding: 50px 20px;
+            background-color: black;
+            color: white;
+            text-align: center;
+        }
+
+        .values-section h2 {
+            font-size: 2.5rem;
+            color: #FF6600;
+            margin-bottom: 30px;
+        }
+
+        .values-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .value-item {
+            max-width: 200px;
+            text-align: center;
+            margin: 20px;
+        }
+
+        .value-item i {
+            font-size: 2.5rem;
+            color: #FF6600;
+            margin-bottom: 10px;
+        }
+
+        .value-item h3 {
+            font-size: 1.3rem;
+            color: #FF6600;
+            margin-bottom: 10px;
+        }
+
+        .value-item p {
+            color: white;
+            font-size: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            nav .links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                right: 0;
+                background-color: #1c1c1c;
+                z-index: 1;
+            }
+
+            nav .links.active {
+                display: flex;
+            }
+
+            nav .hamburger {
+                display: block;
+            }
+
+            .about-story {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .chef-card,
+            .value-item {
+                width: 90%;
+                margin-bottom: 20px;
+            }
+        }
+    </style>
 </head>
+
 <body>
-   
+
     <nav>
         <div class="header">
             <h2><i class='bx bxl-mastodon'></i>Unique Restaurant</h2>
         </div>
         <div class="links" id="navLinks">
             <a href="index.html" class="link">Home</a>
-            <a href="About.html" class="link">About</a>
+            <a href="about.html" class="link">About</a>
             <a href="menu.html" class="link">Food Menu</a>
             <a href="contact.html" class="link">Contact</a>
             <a href="reserve.html" class="link active">Reserve Table</a>
@@ -271,7 +263,7 @@
         </div>
     </nav>
 
-          <header class="about-header">
+    <header class="about-header">
         <h1>About Us</h1>
         <p>Discover our story and what makes us unique.</p>
     </header>
@@ -305,10 +297,10 @@
 
             <div class="chef-card" onclick="toggleBio(this)">
                 <img src="./Public/confident-young-male-cook-wearing-chef-uniform-glasses-crossing-hands.jpg" alt="Chef Maria">
-                <h3>Chef sameer</h3>
+                <h3>Chef Sameer</h3>
                 <p>12 years Experience</p>
                 <div class="chef-bio">
-                    <p>Chef sameer is a pastry magician, creating delectable desserts that are the perfect balance of flavor and artistry, with a focus on French patisserie.</p>
+                    <p>Chef Sameer is a pastry magician, creating delectable desserts that are the perfect balance of flavor and artistry, with a focus on French patisserie.</p>
                 </div>
             </div>
 
@@ -317,7 +309,7 @@
                 <h3>Chef Arvind</h3>
                 <p>7 years Experience</p>
                 <div class="chef-bio">
-                    <p>Chef Arvind culinary talents are a perfect blend of creativity and precision, making him an indispensable part of our kitchen team.</p>
+                    <p>Chef Arvind's culinary talents are a perfect blend of creativity and precision, making him a master of Asian cuisines and sushi artistry.</p>
                 </div>
             </div>
         </div>
@@ -327,37 +319,33 @@
         <h2>Our Values</h2>
         <div class="values-container">
             <div class="value-item">
-                <i class="fas fa-leaf"></i>
-                <h3>Fresh Ingredients</h3>
-                <p>We source the freshest local ingredients to ensure the highest quality in every dish.</p>
+                <i class='bx bxs-star'></i>
+                <h3>Quality</h3>
+                <p>We prioritize the quality of our ingredients to ensure the best taste in every dish.</p>
             </div>
-
             <div class="value-item">
-                <i class="fas fa-heart"></i>
-                <h3>Passionate Cooking</h3>
-                <p>Our chefs pour their heart and soul into every dish they create, ensuring a memorable dining experience.</p>
+                <i class='bx bxs-heart'></i>
+                <h3>Passion</h3>
+                <p>Our team is passionate about food and delivering an exceptional dining experience.</p>
             </div>
-
             <div class="value-item">
-                <i class="fas fa-award"></i>
-                <h3>Excellence</h3>
-                <p>We strive for excellence in everything we do, from food preparation to customer service.</p>
+                <i class='bx bxs-user'></i>
+                <h3>Service</h3>
+                <p>We believe in providing friendly and attentive service to our valued guests.</p>
             </div>
         </div>
     </section>
+
     <script>
         function toggleNavbar() {
-            const navLinks = document.getElementById('navLinks');
-            navLinks.classList.toggle('active');
+            document.getElementById("navLinks").classList.toggle("active");
+        }
+
+        function toggleBio(chefCard) {
+            const bio = chefCard.querySelector('.chef-bio');
+            bio.style.display = bio.style.display === 'block' ? 'none' : 'block';
         }
     </script>
-
-   
 </body>
-</html>
 
-
-
-    
-</body>
 </html>

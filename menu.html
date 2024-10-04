@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Restaurant Menu</title>
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
     <style>
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: Arial sans-serif;
+            font-family: Arial, sans-serif;
         }
 
         body {
@@ -20,73 +20,64 @@
             color: white;
         }
 
-    
         nav {
-    
-            margin: 0 auto;
+            background-color: #1c1c1c;
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 1rem 2rem;
-            
-          }
-          nav .header{
+            position: relative;
+        }
+
+        nav .header {
             font-style: italic;
             color: orange;
             font-weight: bold;
             text-shadow: #000;
-        
-            
-            
-         }
-        
-        
-          nav .logo i {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-          }
-        
-          nav .logo .img {
-            width: 20px;
-            height: 20px;
-          }
-        
-          
-        
-          nav .links {
+        }
+
+        nav .links {
             display: flex;
             gap: 1rem;
-          }
-        
-          nav .links .link {
-            
+        }
+
+        nav .links .link {
             font-size: 1.2rem;
             font-weight: 500;
             padding: 0.4rem 1rem;
-            color:white;
+            color: white;
             text-decoration: none;
-          }
-        
-          nav .links .link.hidden {
+        }
+
+        nav .links .link.hidden {
             display: none;
-          }
-        
-          nav .links .active {
-            
-            color:white;
+        }
+
+        nav .links .active {
+            color: white;
             font-weight: bold;
             border-radius: 15px;
             background: orange;
-          }
-        
-          nav .hamburger {
-            display: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-          }
+        }
 
-    
+        nav .hamburger {
+            display: none;
+            font-size: 2rem;
+            cursor: pointer;
+            color: orange;
+        }
+
+        nav .links.active {
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background-color: #1c1c1c;
+            gap: 0;
+        }
+
         main {
             padding: 20px;
             text-align: center;
@@ -110,7 +101,6 @@
             margin: 10px 0;
         }
 
-        
         .menu-section {
             margin: 40px 0;
         }
@@ -169,7 +159,6 @@
             color: #FF6600;
         }
 
-        /* Button Styles */
         .reserve-btn {
             background-color: #FF6600;
             color: #fff;
@@ -186,7 +175,6 @@
             transition: 0.3s ease;
         }
 
-        
         footer {
             background-color: #111;
             padding: 40px 20px;
@@ -214,175 +202,186 @@
             font-size: 1.2rem;
         }
 
-        
         @media (max-width: 768px) {
+            nav .links {
+                display: none;
+                flex-direction: column;
+            }
+
+            nav .links.active {
+                display: flex;
+            }
+
+            nav .hamburger {
+                display: block;
+            }
+
             .menu-content {
                 flex-direction: column;
                 align-items: center;
             }
 
-            nav ul {
-                flex-direction: column;
-                gap: 10px;
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.3rem;
+            }
+
+            .menu-item {
+                font-size: 1.2rem;
             }
         }
     </style>
 </head>
 <body>
 
-
     <nav>
-      
-        <div class="header">  
-          <h2><i class='bx bxl-mastodon'></i>Unique Restaurant</h2>
+        <div class="header">
+            <h2><i class='bx bxl-mastodon'></i>Unique Restaurant</h2>
         </div>
-        <div class="links">
-          <a href="index.html" class="link">Home</a>
-          <a href="About.html"  class="link">About</a>
-          <a href="menu.html"  class="link">Food Menu</a>
-          <a href="contact.html" class="link">Contact</a>
-          <a href="reserve.html"  class="link active">Reserve Table</a>
-          <button class="link hidden" onclick="toggleLinks()">Close</button>
-          <!-- Hamburger Icon -->
+        <div class="hamburger" id="hamburger">
+            &#9776;
         </div>
-        <div class="hamburger" id="navbarToggle" onclick="toggleLinks()">
-          &#9776;
+        <div class="links" id="navLinks">
+            <a href="index.html" class="link">Home</a>
+            <a href="About.html" class="link">About</a>
+            <a href="menu.html" class="link">Food Menu</a>
+            <a href="contact.html" class="link">Contact</a>
+            <a href="reserve.html" class="link active">Reserve Table</a>
         </div>
-      </nav>
-
+    </nav>
 
     <main>
-    
         <section class="restaurant-intro">
             <h1>Welcome to Our Restaurant</h1>
             <p>Discover our delicious breakfast, lunch, and dinner options crafted with passion.</p>
             <button class="reserve-btn" id="reserveButton">Make a Reservation</button>
         </section>
 
-        
-        <section class="menu-section">
-          <!-- Breakfast Menu -->
-    <section class="menu-section breakfast">
-        <h2>Breakfast Menu</h2>
-        <div class="menu-content">
-            <div class="menu-column">
-                <div class="menu-item">
-                    <span class="dish-name"><i class="fas fa-egg"></i>Pancakes  -------------</span>
-                    <span class="price">$12</span>
+        <!-- Breakfast Menu -->
+        <section class="menu-section breakfast">
+            <h2>Breakfast Menu</h2>
+            <div class="menu-content">
+                <div class="menu-column">
+                    <div class="menu-item">
+                        <span class="dish-name"><i class="fas fa-egg"></i>Pancakes</span>
+                        <span class="price">$12</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="dish-name"><i class="fas fa-cheese"></i>Omelette</span>
+                        <span class="price">$10</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="dish-name"><i class="fas fa-bread-slice"></i>French Toast</span>
+                        <span class="price">$8</span>
+                    </div>
                 </div>
-                <div class="menu-item">
-                    <span class="dish-name"><i class="fas fa-cheese"></i>Omelette  --------------</span>
-                    <span class="price">$10</span>
-                </div>
-                <div class="menu-item">
-                    <span class="dish-name"><i class="fas fa-bread-slice"></i>French Toast  ----------</span>
-                    <span class="price">$8</span>
+                <div class="menu-column">
+                    <div class="menu-item">
+                        <span class="dish-name"><i class="fas fa-pepper-hot"></i>Breakfast Burrito</span>
+                        <span class="price">$14</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="dish-name"><i class="fas fa-apple-alt"></i>Fruit Salad</span>
+                        <span class="price">$9</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="dish-name"><i class="fas fa-coffee"></i>Coffee</span>
+                        <span class="price">$3</span>
+                    </div>
                 </div>
             </div>
-            <div class="menu-column">
-                <div class="menu-item">
-                    <span class="dish-name"><i class="fas fa-pepper-hot"></i>Breakfast Burrito---</span>
-                    <span class="price">$14</span>
-                </div>
-                <div class="menu-item">
-                    <span class="dish-name"><i class="fas fa-apple-alt"></i>Fruit Salad-------</span>
-                    <span class="price">$9</span>
-                </div>
-                <div class="menu-item">
-                    <span class="dish-name"><i class="fas fa-coffee"></i>Coffee-----<span>
-                    <span class="price">$3</span>
-                </div>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Lunch Menu -->
-    <section class="menu-section lunch">
-        <h2>Lunch Menu</h2>
-        <div class="menu-content">
-            <div class="menu-column">
-                <div class="menu-item">
-                    <span class="dish-name"><i class="fas fa-hamburger"></i>Burger--------</span>
-                    <span class="price">$15</span>
+        <!-- Lunch Menu -->
+        <section class="menu-section lunch">
+            <h2>Lunch Menu</h2>
+            <div class="menu-content">
+                <div class="menu-column">
+                    <div class="menu-item">
+                        <span class="dish-name"><i class="fas fa-hamburger"></i>Burger</span>
+                        <span class="price">$15</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="dish-name"><i class="fas fa-leaf"></i>Caesar Salad</span>
+                        <span class="price">$12</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="dish-name"><i class="fas fa-chicken"></i>Grilled Chicken</span>
+                        <span class="price">$18</span>
+                    </div>
                 </div>
-                <div class="menu-item">
-                    <span class="dish-name"><i class="fas fa-leaf"></i>Caesar Salad--------</span>
-                    <span class="price">$12</span>
-                </div>
-                <div class="menu-item">
-                    <span class="dish-name"><i class="fas fa-chicken"></i>Grilled Chicken-------</span>
-                    <span class="price">$18</span>
+                <div class="menu-column">
+                    <div class="menu-item">
+                        <span class="dish-name"><i class="fas fa-pizza-slice"></i>Pizza</span>
+                        <span class="price">$16</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="dish-name"><i class="fas fa-fish"></i>Fish Tacos</span>
+                        <span class="price">$14</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="dish-name"><i class="fas fa-soup"></i>Tomato Soup</span>
+                        <span class="price">$7</span>
+                    </div>
                 </div>
             </div>
-            <div class="menu-column">
-                <div class="menu-item">
-                    <span class="dish-name"><i class="fas fa-pizza-slice"></i>Pasta--------</span>
-                    <span class="price">$20</span>
-                </div>
-                <div class="menu-item">
-                    <span class="dish-name"><i class="fas fa-taco"></i>Tacos-------</span>
-                    <span class="price">$14</span>
-                </div>
-                <div class="menu-item">
-                    <span class="dish-name"><i class="fas fa-utensil-spoon"></i>Soup of the Day-----</span>
-                    <span class="price">$9</span>
-                </div>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Dinner Menu -->
-    <section class="menu-section dinner">
-        <h2>Dinner Menu</h2>
-        <div class="menu-content">
-            <div class="menu-column">
-                <div class="menu-item">
-                    <span class="dish-name"><i class="fas fa-drumstick-bite"></i>Grilled Steak------</span>
-                    <span class="price">$25</span>
+        <!-- Dinner Menu -->
+        <section class="menu-section dinner">
+            <h2>Dinner Menu</h2>
+            <div class="menu-content">
+                <div class="menu-column">
+                    <div class="menu-item">
+                        <span class="dish-name"><i class="fas fa-steak"></i>Steak</span>
+                        <span class="price">$25</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="dish-name"><i class="fas fa-wine-bottle"></i>Wine</span>
+                        <span class="price">$12</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="dish-name"><i class="fas fa-ice-cream"></i>Ice Cream</span>
+                        <span class="price">$6</span>
+                    </div>
                 </div>
-                <div class="menu-item">
-                    <span class="dish-name"><i class="fas fa-fish"></i>Salmon Fillet  -----</span>
-                    <span class="price">$22</span>
-                </div>
-                <div class="menu-item">
-                    <span class="dish-name"><i class="fas fa-sheep"></i>Lamb Chops  -----</span>
-                    <span class="price">$30</span>
+                <div class="menu-column">
+                    <div class="menu-item">
+                        <span class="dish-name"><i class="fas fa-leaf"></i>Salmon Salad</span>
+                        <span class="price">$20</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="dish-name"><i class="fas fa-fish"></i>Sushi</span>
+                        <span class="price">$18</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="dish-name"><i class="fas fa-drumstick-bite"></i>BBQ Ribs</span>
+                        <span class="price">$22</span>
+                    </div>
                 </div>
             </div>
-            <div class="menu-column">
-                <div class="menu-item">
-                    <span class="dish-name"><i class="fas fa-pepper-hot"></i>Vegetarian Platter--</span>
-                    <span class="price">$18</span>
-                </div>
-                <div class="menu-item">
-                    <span class="dish-name"><i class="fas fa-utensils"></i>Bolognese-------</span>
-                    <span class="price">$20</span>
-                </div>
-                <div class="menu-item">
-                    <span class="dish-name"><i class="fas fa-wine-glass-alt"></i>Ribeye Steak------</span>
-                    <span class="price">$28</span>
-                </div>
-            </div>
-        </div>
-    </section>
+        </section>
     </main>
 
-    <!-- Footer -->
     <footer>
-        <p>Contact us: (555) 555-5555 | email@uniqueresto.com</p>
         <div class="social-icons">
             <a href="#"><i class="fab fa-facebook"></i></a>
             <a href="#"><i class="fab fa-instagram"></i></a>
             <a href="#"><i class="fab fa-twitter"></i></a>
         </div>
-        <p>&copy; 2024 Our Restaurant. All rights reserved.</p>
+        <p>&copy; 2024 Unique Restaurant. All rights reserved.</p>
     </footer>
- <script>
-        function toggleNavbar() {
-            const navLinks = document.getElementById('navLinks');
-            navLinks.classList.toggle('active');
-        }
-    </script>
 
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+    </script>
 </body>
 </html>

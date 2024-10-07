@@ -28,17 +28,16 @@
             text-align: center;
             color: #FF6600;
             margin-bottom: 30px;
-            font-size: 2.5rem;
+            font-size: 2rem;
         }
 
         nav {
-            margin: 0 auto;
+            background-color: #1c1c1c;
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 1rem 2rem;
-            background: black;
-            position: relative; /* Position relative for absolute positioning of links */
+            position: relative;
         }
 
         nav .header {
@@ -48,28 +47,9 @@
             text-shadow: #000;
         }
 
-        nav .logo i {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
         nav .links {
             display: flex;
             gap: 1rem;
-            transition: max-height 0.3s ease; /* Smooth transition for navbar */
-        }
-
-        nav .links.active {
-            display: flex; /* Show links when toggled */
-            max-height: 300px; /* Adjust max height to show links */
-            overflow: hidden; /* Hide overflow */
-            flex-direction: column; /* Stack links vertically */
-            position: absolute; /* Position relative to navbar */
-            top: 100%; /* Below the navbar */
-            left: 0; /* Align to left */
-            background: black; /* Match navbar background */
-            z-index: 1; /* Place above other elements */
         }
 
         nav .links .link {
@@ -80,9 +60,8 @@
             text-decoration: none;
         }
 
-        h2 {
-            color: orange;
-            font-size: 1.5rem;
+        nav .links .link.hidden {
+            display: none;
         }
 
         nav .links .active {
@@ -94,11 +73,21 @@
 
         nav .hamburger {
             display: none;
-            font-size: 1.5rem;
+            font-size: 2rem;
             cursor: pointer;
+            color: orange;
         }
 
-        /* Reservation Section */
+        nav .links.active {
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background-color: #1c1c1c;
+            gap: 0;
+        }
         .reservation-section {
             max-width: 1200px;
             margin: 30px auto;
@@ -121,7 +110,7 @@
         .reservation-form h2 {
             color: #FF6600;
             margin-bottom: 20px;
-            font-size: 1.8rem;
+            font-size: 1.5rem;
         }
 
         .reservation-form form {
@@ -173,68 +162,131 @@
                 height: 200px;
             }
 
-          
             nav .links {
-                display: none; /* Hide links by default on mobile */
-                flex-direction: column; /* Stack links vertically */
-                width: 100%; /* Full width for links */
-            }
-
-            nav .hamburger {
-                display: block; /* Show hamburger icon */
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                right: 0;
+                background-color: #1c1c1c;
+                z-index: 1;
             }
 
             nav .links.active {
-                display: flex; /* Show links when toggled */
+                display: flex;
+            }
+
+            nav .hamburger {
+                display: block;
+            }
+
+            .close-btn {
+                display: none;
+                position: absolute;
+                top: 10px;
+                right: 10px;
+                color: white;
+                font-size: 2rem;
+                cursor: pointer;
+            }
+
+            .close-btn.active {
+                display: block;
             }
         }
 
-        /* Footer */
         .footer {
-            background-color: #1c1c1c;
-            padding: 40px 0;
-            text-align: center;
-            color: white;
-            margin-top: 40px;
-        }
-
-        .footer .social-icons {
-            margin-bottom: 20px;
-        }
-
-        .footer .social-icons a {
-            color: orange;
-            margin: 0 10px;
-            font-size: 1.5rem;
-            transition: color 0.3s ease;
-        }
-
-        .footer .social-icons a:hover {
-            color: #FF6600;
-        }
-
-        .footer ul {
-            list-style: none;
+            background-color: #000;
+            color: #fff;
+            padding: 50px 20px;
             display: flex;
-            justify-content: center;
-            gap: 20px;
-        }
-
-        .footer ul li a {
+            flex-wrap: wrap;
+            justify-content: space-between;
+          }
+          
+          .footer-section {
             color: white;
+            flex: 1 1 200px;
+            margin: 10px;
+            max-width: 300px;
+          }
+          
+          .footer-section h3 {
+            color: #ff6600;
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            font-family: 'Arial', sans-serif;
+          }
+          
+          .footer-section p, .footer-section li {
+            color: white;
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 8px;
+            list-style: none;
+            cursor: pointer;
+          }
+          
+          .footer-section ul {
+            padding: 0;
+          }
+          
+          .footer-bottom {
+            width: 100%;
+            text-align: center;
+            margin-top: 30px;
+            border-top: 1px solid #ff6600;
+            padding-top: 15px;
+          }
+          
+          .footer-bottom p, .footer-bottom a {
+            color: #fff;
+            font-size: 1rem;
+            margin: 0 10px;
+          }
+          
+          .footer-bottom a {
             text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .footer ul li a:hover {
-            color: #FF6600;
-        }
-
-        .footer p {
-            margin-top: 20px;
-            font-size: 0.9rem;
-            color: #cccccc;
-        }
+            color: #ff6600;
+          }
+          
+          .footer-bottom a:hover {
+            text-decoration: underline;
+          }
+          
+          /* Responsive design */
+          @media (max-width: 768px) {
+            .footer {
+                flex-direction: column;
+                align-items: start;
+            }
+          
+            .footer-section {
+                margin: 10px 0;
+                max-width: 100%;
+            }
+          
+            .footer-bottom {
+                margin-top: 20px;
+            }
+          }
+          
+          @media (max-width: 480px) {
+            .footer-section h3 {
+                font-size: 1.2rem;
+            }
+          
+            .footer-section p, .footer-section li {
+                font-size: 1rem;
+          
+            }
+          
+            .footer-bottom p, .footer-bottom a {
+                font-size: 1rem;
+                margin-top: 20px;
+            }
+          }
 
     </style>
 </head>
@@ -252,6 +304,7 @@
             <a href="index.html" class="link">Home</a>
             <a href="About.html" class="link">About</a>
             <a href="menu.html" class="link">Food Menu</a>
+            <a href="order.html" class="link">Online Order</a>
             <a href="contact.html" class="link">Contact</a>
             <a href="reserve.html" class="link active">Reserve Table</a>
         </div>
@@ -289,28 +342,52 @@
         <div class="image-section"></div>
     </div>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="social-icons">
-            <a href="#"><i class="fab fa-facebook-f"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
+    <div class="footer">
+        <div class="footer-section">
+            <h3>About Us</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit consequuntur par velit accusamus, animi ullam harum libero cum suscipit. Molestiae, commodi.</p>
         </div>
-        <ul>
-            <li><a href="#">Privacy Policy</a></li>
-            <li><a href="#">Terms of Service</a></li>
-        </ul>
-        <p>&copy; 2024 Unique Restaurant. All Rights Reserved.</p>
-    </footer>
-
+        <div class="footer-section">
+            <h3>Our Food</h3>
+            <ul>
+                <li>Quality</li>
+                <li>Affordable</li>
+                <li>Best Price</li>
+                <li>Low Cost</li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h3>Offers</h3>
+            <ul>
+                <li>20% OFF</li>
+                <li>Free 1st meal</li>
+                <li>Quality</li>
+                <li>Affordable</li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h3>Connect Us</h3>
+            <ul>
+                <li>LinkedIn</li>
+                <li>Facebook</li>
+                <li>Instagram</li>
+                <li>Twitter</li>
+            </ul>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Your Company. All Rights Reserved.</p>
+            <a href="#">Privacy Policy</a> | <a href="#">Terms & Conditions</a>
+        </div>
+    </div>
+    
     <script>
     
-            const hamburger = document.getElementById('hamburger');
-            const navLinks = document.getElementById('navLinks');
-    
-            hamburger.addEventListener('click', () => {
-                navLinks.classList.toggle('active');
-            });
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
         </script>
     
 

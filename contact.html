@@ -22,13 +22,12 @@
         }
 
         nav {
-            margin: 0 auto;
+            background-color: #1c1c1c;
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 1rem 2rem;
-            background: black;
-            position: relative; /* Position relative for absolute positioning of links */
+            position: relative;
         }
 
         nav .header {
@@ -38,28 +37,9 @@
             text-shadow: #000;
         }
 
-        nav .logo i {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
         nav .links {
             display: flex;
             gap: 1rem;
-            transition: max-height 0.3s ease; /* Smooth transition for navbar */
-        }
-
-        nav .links.active {
-            display: flex; /* Show links when toggled */
-            max-height: 300px; /* Adjust max height to show links */
-            overflow: hidden; /* Hide overflow */
-            flex-direction: column; /* Stack links vertically */
-            position: absolute; /* Position relative to navbar */
-            top: 100%; /* Below the navbar */
-            left: 0; /* Align to left */
-            background: black; /* Match navbar background */
-            z-index: 1; /* Place above other elements */
         }
 
         nav .links .link {
@@ -70,9 +50,8 @@
             text-decoration: none;
         }
 
-        h2 {
-            color: orange;
-            font-size: 1.5rem;
+        nav .links .link.hidden {
+            display: none;
         }
 
         nav .links .active {
@@ -84,13 +63,25 @@
 
         nav .hamburger {
             display: none;
-            font-size: 1.5rem;
+            font-size: 2rem;
             cursor: pointer;
+            color: orange;
+        }
+
+        nav .links.active {
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background-color: #1c1c1c;
+            gap: 0;
         }
 
         .contact-header {
             text-align: center;
-            padding: 3rem;
+            padding: 2rem;
             background: url('https://source.unsplash.com/1600x500/?restaurant,food') no-repeat center;
             background-size: cover;
             color: orangered;
@@ -245,17 +236,22 @@
             }
 
             nav .links {
-                display: none; /* Hide links by default on mobile */
-                flex-direction: column; /* Stack links vertically */
-                width: 100%; /* Full width for links */
-            }
-
-            nav .hamburger {
-                display: block; /* Show hamburger icon */
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                right: 0;
+                background-color: #1c1c1c;
+                z-index: 1;
             }
 
             nav .links.active {
-                display: flex; /* Show links when toggled */
+                display: flex;
+            }
+
+            nav .hamburger {
+                display: block;
             }
         }
 
@@ -282,27 +278,97 @@
             }
         }
 
-        /* Footer Styling */
-        footer {
-            background-color: #111;
-            padding: 1.5rem;
+        .footer {
+            background-color: #000;
+            color: #fff;
+            padding: 50px 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+          }
+          
+          .footer-section {
             color: white;
+            flex: 1 1 200px;
+            margin: 10px;
+            max-width: 300px;
+          }
+          
+          .footer-section h3 {
+            color: #ff6600;
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            font-family: 'Arial', sans-serif;
+          }
+          
+          .footer-section p, .footer-section li {
+            color: white;
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 8px;
+            list-style: none;
+            cursor: pointer;
+          }
+          
+          .footer-section ul {
+            padding: 0;
+          }
+          
+          .footer-bottom {
+            width: 100%;
             text-align: center;
-            margin-top: 4rem;
-        }
-
-        footer a {
-            color: #FF6600;
+            margin-top: 30px;
+            border-top: 1px solid #ff6600;
+            padding-top: 15px;
+          }
+          
+          .footer-bottom p, .footer-bottom a {
+            color: #fff;
+            font-size: 1rem;
+            margin: 0 10px;
+          }
+          
+          .footer-bottom a {
             text-decoration: none;
-        }
-        
-        footer p {
-            color: white;
-        }
-
-        footer a:hover {
-            color: white;
-        }
+            color: #ff6600;
+          }
+          
+          .footer-bottom a:hover {
+            text-decoration: underline;
+          }
+          
+          /* Responsive design */
+          @media (max-width: 768px) {
+            .footer {
+                flex-direction: column;
+                align-items: start;
+            }
+          
+            .footer-section {
+                margin: 10px 0;
+                max-width: 100%;
+            }
+          
+            .footer-bottom {
+                margin-top: 20px;
+            }
+          }
+          
+          @media (max-width: 480px) {
+            .footer-section h3 {
+                font-size: 1.2rem;
+            }
+          
+            .footer-section p, .footer-section li {
+                font-size: 1rem;
+          
+            }
+          
+            .footer-bottom p, .footer-bottom a {
+                font-size: 1rem;
+                margin-top: 20px;
+            }
+          }
     </style>
 </head>
 <body>
@@ -310,18 +376,19 @@
         <div class="header">
             <h2><i class='bx bxl-mastodon'></i>Unique Restaurant</h2>
         </div>
+        <div class="hamburger" id="hamburger">
+            &#9776;
+        </div>
         <div class="links" id="navLinks">
             <a href="index.html" class="link">Home</a>
-            <a href="about.html" class="link">About</a>
-            <a href="menu.html" class="link">Menu</a>
-            <a href="reservation.html" class="link">Reservation</a>
+            <a href="About.html" class="link">About</a>
+            <a href="menu.html" class="link">Food Menu</a>
             <a href="order.html" class="link">Online Order</a>
             <a href="contact.html" class="link">Contact</a>
-        </div>
-        <div class="hamburger" id="hamburger">
-            <i class="fas fa-bars"></i>
+            <a href="reserve.html" class="link active">Reserve Table</a>
         </div>
     </nav>
+
 
     <section class="contact-header">
         <h1>Contact Us</h1>
@@ -363,29 +430,61 @@
         </div>
     </div>
 
-    <div class="feedback-section">
-        <div class="feedback-image"></div>
-        <form>
-            <h2>Feedback</h2>
-            <input type="text" placeholder="Your Name" required>
-            <input type="email" placeholder="Your Email" required>
-            <textarea rows="4" placeholder="Your Feedback" required></textarea>
-            <button type="submit">Submit Feedback</button>
-        </form>
+  
+    <div class="footer">
+        <div class="footer-section">
+            <h3>About Us</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit consequuntur par velit accusamus, animi ullam harum libero cum suscipit. Molestiae, commodi.</p>
+        </div>
+        <div class="footer-section">
+            <h3>Our Food</h3>
+            <ul>
+                <li>Quality</li>
+                <li>Affordable</li>
+                <li>Best Price</li>
+                <li>Low Cost</li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h3>Offers</h3>
+            <ul>
+                <li>20% OFF</li>
+                <li>Free 1st meal</li>
+                <li>Quality</li>
+                <li>Affordable</li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h3>Connect Us</h3>
+            <ul>
+                <li>LinkedIn</li>
+                <li>Facebook</li>
+                <li>Instagram</li>
+                <li>Twitter</li>
+            </ul>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Your Company. All Rights Reserved.</p>
+            <a href="#">Privacy Policy</a> | <a href="#">Terms & Conditions</a>
+        </div>
     </div>
-
-    <footer>
-        <p>&copy; 2024 Unique Restaurant. All rights reserved.</p>
-        <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a>
-    </footer>
+    
 
     <script>
-        const hamburger = document.getElementById('hamburger');
-        const navLinks = document.getElementById('navLinks');
+        
+            const hamburger = document.getElementById('hamburger');
+            const navLinks = document.getElementById('navLinks');
+    
+            hamburger.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+            });
+        
 
-        hamburger.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-        });
+        function toggleBio(chefCard) {
+            const bio = chefCard.querySelector('.chef-bio');
+            bio.style.display = bio.style.display === 'block' ? 'none' : 'block';
+        }
     </script>
+    
 </body>
 </html>

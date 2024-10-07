@@ -22,11 +22,11 @@
 
         nav {
             background-color: #1c1c1c;
-            margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 1rem 2rem;
+            position: relative;
         }
 
         nav .header {
@@ -34,12 +34,6 @@
             color: orange;
             font-weight: bold;
             text-shadow: #000;
-        }
-
-        nav .logo i {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
         }
 
         nav .links {
@@ -55,6 +49,10 @@
             text-decoration: none;
         }
 
+        nav .links .link.hidden {
+            display: none;
+        }
+
         nav .links .active {
             color: white;
             font-weight: bold;
@@ -64,8 +62,20 @@
 
         nav .hamburger {
             display: none;
-            font-size: 1.5rem;
+            font-size: 2rem;
             cursor: pointer;
+            color: orange;
+        }
+
+        nav .links.active {
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background-color: #1c1c1c;
+            gap: 0;
         }
 
         header.about-header {
@@ -171,14 +181,14 @@
 
         .values-section {
             padding: 50px 20px;
-            background-color: black;
+            background-color:orange;
             color: white;
             text-align: center;
         }
 
         .values-section h2 {
             font-size: 2.5rem;
-            color: #FF6600;
+            color: black;
             margin-bottom: 30px;
         }
 
@@ -196,13 +206,13 @@
 
         .value-item i {
             font-size: 2.5rem;
-            color: #FF6600;
+            color: black;
             margin-bottom: 10px;
         }
 
         .value-item h3 {
             font-size: 1.3rem;
-            color: #FF6600;
+            color: black;
             margin-bottom: 10px;
         }
 
@@ -242,6 +252,97 @@
                 margin-bottom: 20px;
             }
         }
+        .footer {
+            background-color: #000;
+            color: #fff;
+            padding: 50px 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+          }
+          
+          .footer-section {
+            color: white;
+            flex: 1 1 200px;
+            margin: 10px;
+            max-width: 300px;
+          }
+          
+          .footer-section h3 {
+            color: #ff6600;
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            font-family: 'Arial', sans-serif;
+          }
+          
+          .footer-section p, .footer-section li {
+            color: white;
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 8px;
+            list-style: none;
+            cursor: pointer;
+          }
+          
+          .footer-section ul {
+            padding: 0;
+          }
+          
+          .footer-bottom {
+            width: 100%;
+            text-align: center;
+            margin-top: 30px;
+            border-top: 1px solid #ff6600;
+            padding-top: 15px;
+          }
+          
+          .footer-bottom p, .footer-bottom a {
+            color: #fff;
+            font-size: 1rem;
+            margin: 0 10px;
+          }
+          
+          .footer-bottom a {
+            text-decoration: none;
+            color: #ff6600;
+          }
+          
+          .footer-bottom a:hover {
+            text-decoration: underline;
+          }
+          
+          /* Responsive design */
+          @media (max-width: 768px) {
+            .footer {
+                flex-direction: column;
+                align-items: start;
+            }
+          
+            .footer-section {
+                margin: 10px 0;
+                max-width: 100%;
+            }
+          
+            .footer-bottom {
+                margin-top: 20px;
+            }
+          }
+          
+          @media (max-width: 480px) {
+            .footer-section h3 {
+                font-size: 1.2rem;
+            }
+          
+            .footer-section p, .footer-section li {
+                font-size: 1rem;
+          
+            }
+          
+            .footer-bottom p, .footer-bottom a {
+                font-size: 1rem;
+                margin-top: 20px;
+            }
+          }
     </style>
 </head>
 
@@ -251,15 +352,16 @@
         <div class="header">
             <h2><i class='bx bxl-mastodon'></i>Unique Restaurant</h2>
         </div>
+        <div class="hamburger" id="hamburger">
+            &#9776;
+        </div>
         <div class="links" id="navLinks">
             <a href="index.html" class="link">Home</a>
-            <a href="about.html" class="link">About</a>
+            <a href="About.html" class="link">About</a>
             <a href="menu.html" class="link">Food Menu</a>
+            <a href="order.html" class="link">Online Order</a>
             <a href="contact.html" class="link">Contact</a>
             <a href="reserve.html" class="link active">Reserve Table</a>
-        </div>
-        <div class="hamburger" id="navbarToggle" onclick="toggleNavbar()">
-            &#9776;
         </div>
     </nav>
 
@@ -335,11 +437,52 @@
             </div>
         </div>
     </section>
+    <div class="footer">
+        <div class="footer-section">
+            <h3>About Us</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit consequuntur par velit accusamus, animi ullam harum libero cum suscipit. Molestiae, commodi.</p>
+        </div>
+        <div class="footer-section">
+            <h3>Our Food</h3>
+            <ul>
+                <li>Quality</li>
+                <li>Affordable</li>
+                <li>Best Price</li>
+                <li>Low Cost</li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h3>Offers</h3>
+            <ul>
+                <li>20% OFF</li>
+                <li>Free 1st meal</li>
+                <li>Quality</li>
+                <li>Affordable</li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h3>Connect Us</h3>
+            <ul>
+                <li>LinkedIn</li>
+                <li>Facebook</li>
+                <li>Instagram</li>
+                <li>Twitter</li>
+            </ul>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Your Company. All Rights Reserved.</p>
+            <a href="#">Privacy Policy</a> | <a href="#">Terms & Conditions</a>
+        </div>
+    </div>
+    
 
     <script>
-        function toggleNavbar() {
-            document.getElementById("navLinks").classList.toggle("active");
-        }
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
 
         function toggleBio(chefCard) {
             const bio = chefCard.querySelector('.chef-bio');

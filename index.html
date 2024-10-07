@@ -9,27 +9,22 @@
     <title>Resto Home</title>
 </head>
 <body>
-    <nav>
-      
-        <div class="header">
-           
-          <h2> <i class='bx bxl-mastodon'></i>Unique Restaurant</h2>
-        </div>
-        <div class="links">
-          <a href="" class="link">Home</a>
-          <a href="About.html"  class="link">About</a>
-          <a href="menu.html"  class="link">Food Menu</a>
-          <a href="contact.html" class="link">Contact</a>
-          <a href="order.html" class="link">Online Order</a>
-          <a href="reserve.html"  class="link active">Reserve Table</a>
-          <button class="link hidden" onclick="toggleLinks()">Close</button>
-          <!-- Hamburger Icon -->
-        </div>
-        <div class="hamburger" id="navbarToggle" onclick="toggleLinks()">
-          &#9776;
-        </div>
-      </nav>
-
+  <nav>
+    <div class="header">
+        <h2><i class='bx bxl-mastodon'></i>Unique Restaurant</h2>
+    </div>
+    <div class="hamburger" id="hamburger">
+        &#9776;
+    </div>
+    <div class="links" id="navLinks">
+        <a href="index.html" class="link">Home</a>
+        <a href="About.html" class="link">About</a>
+        <a href="menu.html" class="link">Food Menu</a>
+        <a href="order.html" class="link">Online Order</a>
+        <a href="contact.html" class="link">Contact</a>
+        <a href="reserve.html" class="link active">Reserve Table</a>
+    </div>
+</nav>
       <section class="container">
         <div  class="left">
         <h2>Enjoy Our Delicious Meal</h2>
@@ -331,41 +326,53 @@
           
       
         <div class="footer">
-          <div class="text">
+          <div class="footer-section">
               <h3>About Us</h3>
-              <p>Lorem ipsum dolor sit amet consectetur <br>
-               adipisicing elit. Odit consequuntur par <br>
-                velit accusamus, animi ullam harum dolores <br> libero cum suscipit. Molestiae, commodi.</p>
-
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit consequuntur par velit accusamus, animi ullam harum libero cum suscipit. Molestiae, commodi.</p>
           </div>
-          <div class="text">
+          <div class="footer-section">
               <h3>Our Food</h3>
-              <p>Quality</p>
-              <p>Affordable</p>
-              <p>Best Price</p>
-              <p>Low Cost</p>
-
+              <ul>
+                  <li>Quality</li>
+                  <li>Affordable</li>
+                  <li>Best Price</li>
+                  <li>Low Cost</li>
+              </ul>
           </div>
-          <div class="text">
+          <div class="footer-section">
               <h3>Offers</h3>
-              <p>20% OFF</p>
-              <p>Free 1st meal</p>
-              <p>quality</p>
-              <p>Affordable</p>
-
+              <ul>
+                  <li>20% OFF</li>
+                  <li>Free 1st meal</li>
+                  <li>Quality</li>
+                  <li>Affordable</li>
+              </ul>
           </div>
-          <div class="text">
+          <div class="footer-section">
               <h3>Connect Us</h3>
-              <p>Linked In</p>
-              <p>Facebook</p>
-              <p>Instagram</p>
-              <p>Twitter</p>
-
+              <ul>
+                  <li>LinkedIn</li>
+                  <li>Facebook</li>
+                  <li>Instagram</li>
+                  <li>Twitter</li>
+              </ul>
+          </div>
+          <div class="footer-bottom">
+              <p>&copy; 2024 Your Company. All Rights Reserved.</p>
+              <a href="#">Privacy Policy</a> | <a href="#">Terms & Conditions</a>
           </div>
       </div>
-  </div>
+      
           <script src="https://unpkg.com/scrollreveal"></script>
           <script src="main.js"></script>
+          <script>
+            const hamburger = document.getElementById('hamburger');
+            const navLinks = document.getElementById('navLinks');
+    
+            hamburger.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+            });
+          </script>
         </body>
       </html>
         

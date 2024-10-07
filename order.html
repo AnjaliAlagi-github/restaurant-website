@@ -122,13 +122,97 @@ h2 {
     color: #ff4500;
 }
 
-/* Footer Styling */
 .footer {
-    background-color: #111;
+    background-color: #000;
+    color: #fff;
+    padding: 50px 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  .footer-section {
+    color: white;
+    flex: 1 1 200px;
+    margin: 10px;
+    max-width: 300px;
+  }
+  
+  .footer-section h3 {
+    color: #ff6600;
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .footer-section p, .footer-section li {
+    color: white;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 8px;
+    list-style: none;
+    cursor: pointer;
+  }
+  
+  .footer-section ul {
+    padding: 0;
+  }
+  
+  .footer-bottom {
+    width: 100%;
     text-align: center;
-    padding: 20px;
-    margin-top: 20px;
-}
+    margin-top: 30px;
+    border-top: 1px solid #ff6600;
+    padding-top: 15px;
+  }
+  
+  .footer-bottom p, .footer-bottom a {
+    color: #fff;
+    font-size: 1rem;
+    margin: 0 10px;
+  }
+  
+  .footer-bottom a {
+    text-decoration: none;
+    color: #ff6600;
+  }
+  
+  .footer-bottom a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Responsive design */
+  @media (max-width: 768px) {
+    .footer {
+        flex-direction: column;
+        align-items: start;
+    }
+  
+    .footer-section {
+        margin: 10px 0;
+        max-width: 100%;
+    }
+  
+    .footer-bottom {
+        margin-top: 20px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .footer-section h3 {
+        font-size: 1.2rem;
+    }
+  
+    .footer-section p, .footer-section li {
+        font-size: 1rem;
+  
+    }
+  
+    .footer-bottom p, .footer-bottom a {
+        font-size: 1rem;
+        margin-top: 20px;
+    }
+  }
 
 /* Hidden Sections */
 .hidden {
@@ -217,7 +301,7 @@ input[type="text"], input[type="number"], select {
         <a href="index.html">Home</a>
         <a href="menu.html">Menu</a>
     
-        <a href="#">Online Order</a>
+        <a href="order.html">Online Order</a>
         <a href="reserve.html">Reserve Table</a>
     </nav>
 </header>
@@ -319,8 +403,43 @@ input[type="text"], input[type="number"], select {
 </div>
 
 <div class="footer">
-    <p>&copy; 2024 Your Restaurant. All Rights Reserved.</p>
+    <div class="footer-section">
+        <h3>About Us</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit consequuntur par velit accusamus, animi ullam harum libero cum suscipit. Molestiae, commodi.</p>
+    </div>
+    <div class="footer-section">
+        <h3>Our Food</h3>
+        <ul>
+            <li>Quality</li>
+            <li>Affordable</li>
+            <li>Best Price</li>
+            <li>Low Cost</li>
+        </ul>
+    </div>
+    <div class="footer-section">
+        <h3>Offers</h3>
+        <ul>
+            <li>20% OFF</li>
+            <li>Free 1st meal</li>
+            <li>Quality</li>
+            <li>Affordable</li>
+        </ul>
+    </div>
+    <div class="footer-section">
+        <h3>Connect Us</h3>
+        <ul>
+            <li>LinkedIn</li>
+            <li>Facebook</li>
+            <li>Instagram</li>
+            <li>Twitter</li>
+        </ul>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2024 Your Company. All Rights Reserved.</p>
+        <a href="#">Privacy Policy</a> | <a href="#">Terms & Conditions</a>
+    </div>
 </div>
+
 
 <script>
     function openAccountSection(food) {

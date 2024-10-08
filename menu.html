@@ -322,7 +322,7 @@
         <section class="restaurant-intro">
             <h1>Welcome to Our Restaurant</h1>
             <p>Discover our delicious breakfast, lunch, and dinner options crafted with passion.</p>
-            <button class="reserve-btn" id="reserveButton">Make a Reservation</button>
+            <button class="reserve-btn" id="reserveButton" onclick="redirectToReservation()">Make a Reservation</button>
         </section>
 
         <!-- Breakfast Menu -->
@@ -468,7 +468,12 @@
             <a href="#">Privacy Policy</a> | <a href="#">Terms & Conditions</a>
         </div>
     </div>
-    
+
+<script>
+    function redirectToReservation() {
+        window.location.href = "reserve.html";
+    }
+</script>
     <script>
         const hamburger = document.getElementById('hamburger');
         const navLinks = document.getElementById('navLinks');

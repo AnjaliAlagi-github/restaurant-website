@@ -899,6 +899,40 @@
       font-size: 1rem; /* Ensure input font size is readable */
   }
 }
+@media (max-width: 480px) {
+  .reservation__container {
+      padding: 1rem; /* Adjust padding for mobile */
+  }
+
+  .reservation__bg-1,
+  .reservation__bg-2 {
+      display: none; /* Hide images on smaller screens for better readability */
+  }
+
+  /* Adjust input font size and ensure readability */
+  .reservation__container input {
+      font-size: 1rem; /* Ensure input font size is readable */
+      padding: 0.75rem 1rem; /* Adjust padding */
+      padding-left: 2.5rem; /* Space for the icon */
+  }
+
+  .input-container input {
+      padding-left: 2.5rem; /* Space for the icon */
+  }
+
+  .input-container i {
+      position: absolute;
+      left: 0.75rem; /* Position icon */
+      top: 50%;
+      transform: translateY(-50%);
+      color: black; /* Adjust icon color */
+      font-size: 1rem; /* Adjust icon size */
+  }
+
+  .reservation__container button {
+      font-size: 1rem; /* Adjust button font size for mobile */
+  }
+}
 
   /* Footer styles */
   .footer {

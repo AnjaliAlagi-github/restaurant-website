@@ -776,6 +776,7 @@
     
 }
 /* General reservation styling */
+/* General reservation styling */
 .reservation {
   position: relative;
   isolation: isolate;
@@ -783,7 +784,6 @@
   padding: 2rem 1rem;
 }
 
-/* Headings */
 .reservation__container h3, h2 {
   font-size: 2rem;
   font-weight: 500;
@@ -791,13 +791,12 @@
   text-align: center;
 }
 
-/* Responsive heading sizes */
 .reservation__container h3 {
-  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  font-size: clamp(1.5rem, 2.5vw, 2rem); /* Responsive heading size */
 }
 
 .reservation__container h2 {
-  font-size: clamp(2rem, 4vw, 3rem);
+  font-size: clamp(2rem, 4vw, 3rem); /* Responsive subheading size */
 }
 
 /* Form styling */
@@ -807,17 +806,29 @@
   margin-top: 4rem;
   display: grid;
   gap: 1rem;
-  grid-template-columns: 1fr; /* Single column layout by default */
+  grid-template-columns: 1fr; /* Default to single column on mobile */
 }
 
-/* Form inputs */
+.input-container {
+  position: relative;
+}
+
+.input-container i {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: black; /* Icon color */
+}
+
 .reservation__container input {
-  padding: 0.75rem 1rem;
+  padding: 0.75rem 1rem 0.75rem 2.5rem; /* Add padding for icon space */
   outline: none;
   border: 1px solid white;
   font-size: 1rem;
   color: black;
   border-radius: 5px;
+  width: 100%; /* Ensure inputs take full width */
 }
 
 .reservation__container input::placeholder {
@@ -838,14 +849,14 @@
   background-color: #ff8c00;
 }
 
-/* Responsive layout for 768px (tablet) */
+/* Responsive layout for larger screens */
 @media (min-width: 768px) {
   .reservation__container form {
-      grid-template-columns: repeat(2, 1fr); /* Two columns for tablet screens */
+      grid-template-columns: repeat(2, 1fr); /* Two columns for tablet and above */
   }
 
   .reservation__container input:nth-child(5) {
-      grid-column: span 2; /* "People" field spans two columns */
+      grid-column: span 2; /* People field spans two columns */
   }
 
   .reservation__container button {
@@ -853,7 +864,7 @@
   }
 }
 
-/* Background images */
+/* Background image positioning */
 .reservation img {
   position: absolute;
   z-index: -1;
@@ -873,49 +884,19 @@
   width: clamp(100px, 20vw, 250px);
 }
 
-/* Styles for screens 480px (mobile) */
-@media (max-width: 480px) {
-  .reservation__container form {
-      grid-template-columns: 1fr; /* Single column on mobile */
-  }
-
-  .reservation__bg-1, .reservation__bg-2 {
-      display: none; /* Hide background images for mobile */
-  }
-
-  .reservation__container input {
-      font-size: 0.9rem; /* Slightly smaller input font size on mobile */
-  }
-
-  .reservation__container h2, h3 {
-      font-size: 1.5rem; /* Adjust heading sizes for smaller screens */
-  }
-
+/* Ensure form looks good on mobile */
+@media (max-width: 767px) {
   .reservation__container {
       padding: 1rem;
   }
 
-  .reservation__container button {
-      font-size: 1rem;
-  }
-}
-
-/* Additional adjustment for 768px */
-@media (max-width: 768px) {
-  .reservation__container {
-      padding: 1.5rem;
-  }
-
-  .reservation__container form {
-      grid-template-columns: 1fr; /* Single column on smaller tablet screens */
-  }
-
-  .reservation__container h2 {
-      font-size: 2rem; /* Smaller subheading for tablet */
-  }
-
   .reservation__bg-1, .reservation__bg-2 {
-      opacity: 0.5; /* Lighter opacity for background images on tablet */
+      display: none; /* Hide images on smaller screens for better readability */
+  }
+
+  /* Additional styling for input fields */
+  .input-container input {
+      font-size: 1rem; /* Ensure input font size is readable */
   }
 }
 
@@ -1126,3 +1107,38 @@
     }
 }
 
+@media (max-width: 768px) {
+  .footer {
+    flex-wrap: wrap;
+    text-align: center;
+  }
+
+  .footer .text {
+    flex-basis: 45%; 
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 480px), (max-width: 468px) {
+  .footer {
+    flex-direction: column; 
+    align-items: center;
+  }
+
+  .footer .text {
+    flex-basis: 100%; 
+    margin-bottom: 20px;
+  }
+
+  .footer h3 {
+    font-size: 18px;
+  }
+
+  .footer p {
+    font-size: 14px;
+    text-align: start;
+  }
+}
+
+
+ 

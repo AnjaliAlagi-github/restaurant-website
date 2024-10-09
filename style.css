@@ -843,19 +843,47 @@ button:hover {
 
 /* Mobile-specific adjustments for screens below 390px */
 @media (max-width: 390px) {
+  .reservation__container {
+      padding: 1rem; /* Adjust padding for mobile */
+  }
+
   form {
-    grid-template-columns: 1fr; /* Single column layout for mobile */
+      grid-template-columns: 1fr; /* Single column layout */
+      gap: 1rem; /* Adjust spacing between form fields */
   }
 
   .input-container input {
-    font-size: 0.9rem;
-    padding: 0.6rem 0.6rem 0.6rem 2rem;
+      font-size: 0.9rem; /* Adjust input font size for better readability */
+      padding: 0.6rem; /* Adjust padding for input fields */
   }
 
   button {
-    font-size: 1rem;
-    padding: 0.75rem;
-    width: 100%; /* Full-width button */
+      font-size: 1rem; /* Adjust button font size for mobile */
+      padding: 0.75rem; /* Adjust button padding */
+      width: 100%; /* Full-width button for easier access */
+  }
+}
+
+/* Media query for 340px screens */
+@media (max-width: 340px) {
+  .reservation__container {
+      padding: 0.8rem; /* Adjust padding for even smaller screens */
+  }
+
+  form {
+      grid-template-columns: 1fr; /* Maintain single column layout */
+      gap: 0.8rem; /* Adjust spacing between form fields */
+  }
+
+  .input-container input {
+      font-size: 0.9rem; /* Adjust input font size for smaller screens */
+      padding: 0.5rem; /* Reduce padding for better fit */
+  }
+
+  button {
+      font-size: 1rem; /* Adjust button font size */
+      padding: 0.75rem; /* Maintain button padding */
+      width: 100%; /* Full-width button for smaller screens */
   }
 }
 

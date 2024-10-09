@@ -913,13 +913,10 @@
   .reservation__container input {
       font-size: 1rem; /* Ensure input font size is readable */
       padding: 0.75rem 1rem; /* Adjust padding */
-      padding-left: 2.5rem; /* Space for the icon */
+      
   }
 
-  .input-container input {
-      padding-left: 2.5rem; /* Space for the icon */
-  }
-
+  
   .input-container i {
       position: absolute;
       left: 0.75rem; /* Position icon */
@@ -941,7 +938,7 @@
   .reservation__container input {
       font-size: 1rem; /* Ensure input fields are readable */
       width: 100%; /* Make sure all inputs are equal size */
-      padding-left: 2.5rem; /* Space for icons */
+      
   }
 
   .reservation__container button {

@@ -718,28 +718,6 @@
         display: block;
         color: orange;
     }
-        .reservation__container form {
-            max-width: 600px;
-            grid-template-columns: repeat(2, 1fr);
-          }
-        
-          .reservation img {
-            display: flex;
-            position: absolute;
-            z-index: -1;
-          }
-        
-          .reservation__bg-1 {
-            left: 0;
-            top: 0;
-            width: clamp(100px, 25vw, 350px);
-          }
-        
-          .reservation__bg-2 {
-            right: 0;
-            bottom: 0;
-            width: clamp(100px, 20vw, 250px);
-          }
         
           .footer__content {
             grid-template-columns: repeat(2, 1fr);
@@ -775,196 +753,143 @@
     }
     
 }
-/* General reservation styling */
-/* General reservation styling */
 .reservation {
-  position: relative;
-  isolation: isolate;
-  margin-bottom: 4rem;
   padding: 2rem 1rem;
-}
-
-.reservation__container h3, h2 {
-  font-size: 2rem;
-  font-weight: 500;
-  color: orange;
+  background-color: #333;
+  color: white;
   text-align: center;
 }
 
+.reservation__container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.reservation__container h3, h2 {
+  color: orange;
+}
+
 .reservation__container h3 {
-  font-size: clamp(1.5rem, 2.5vw, 2rem); /* Responsive heading size */
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
 }
 
 .reservation__container h2 {
-  font-size: clamp(2rem, 4vw, 3rem); /* Responsive subheading size */
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin-bottom: 2rem;
 }
 
 /* Form styling */
-.reservation__container form {
-  max-width: 600px;
-  margin-inline: auto;
-  margin-top: 4rem;
+form {
   display: grid;
-  gap: 1rem;
-  grid-template-columns: 1fr; /* Default to single column on mobile */
+  gap: 1.5rem;
+  grid-template-columns: 1fr; /* Single column by default */
 }
 
 .input-container {
   position: relative;
+  display: flex;
+  align-items: center;
 }
 
 .input-container i {
   position: absolute;
   left: 10px;
-  top: 50%;
-  transform: translateY(-50%);
-  color: black; /* Icon color */
+  color: orange;
+  font-size: 1.2rem;
 }
 
-.reservation__container input {
-  padding: 0.75rem 1rem 0.75rem 2.5rem; /* Add padding for icon space */
-  outline: none;
-  border: 1px solid white;
-  font-size: 1rem;
-  color: black;
+.input-container input {
+  width: 100%;
+  padding: 0.75rem 0.75rem 0.75rem 2.5rem;
   border-radius: 5px;
-  width: 100%; /* Ensure inputs take full width */
+  border: 1px solid white;
+  background-color: white;
+  font-size: 1rem;
+  color: #333;
+  outline: none;
 }
 
-.reservation__container input::placeholder {
-  color: black;
+input::placeholder {
+  color: #555;
 }
 
-.reservation__container button {
-  padding: 0.75rem;
+button {
+  padding: 1rem;
   background-color: orange;
   color: white;
+  font-size: 1.2rem;
   border: none;
   cursor: pointer;
-  font-size: 1.1rem;
   transition: background-color 0.3s ease;
+  border-radius: 5px;
 }
 
-.reservation__container button:hover {
+button:hover {
   background-color: #ff8c00;
 }
 
-/* Responsive layout for larger screens */
+/* Responsive Layout for larger screens */
 @media (min-width: 768px) {
-  .reservation__container form {
-      grid-template-columns: repeat(2, 1fr); /* Two columns for tablet and above */
+  form {
+    grid-template-columns: repeat(2, 1fr); /* Two columns for tablet and above */
   }
 
-  .reservation__container input:nth-child(5) {
-      grid-column: span 2; /* People field spans two columns */
-  }
-
-  .reservation__container button {
-      grid-column: span 2; /* Button spans two columns */
+  /* Full-width for PEOPLE input and FIND TABLE button */
+  form input:nth-child(5), /* PEOPLE field */
+  form button {
+    grid-column: span 2; /* Span two columns to make them equal width */
   }
 }
 
-/* Background image positioning */
-.reservation img {
-  position: absolute;
-  z-index: -1;
-  opacity: 0.7;
-  object-fit: cover;
-}
-
-.reservation__bg-1 {
-  left: 0;
-  top: 0;
-  width: clamp(100px, 25vw, 350px);
-}
-
-.reservation__bg-2 {
-  right: 0;
-  bottom: 0;
-  width: clamp(100px, 20vw, 250px);
-}
-
-/* Ensure form looks good on mobile */
-@media (max-width: 767px) {
-  .reservation__container {
-      padding: 1rem;
+/* Mobile-specific adjustments for screens below 390px */
+@media (max-width: 390px) {
+  form {
+    grid-template-columns: 1fr; /* Single column layout for mobile */
   }
 
-  .reservation__bg-1, .reservation__bg-2 {
-      display: none; 
-  }
-
-  /* Additional styling for input fields */
   .input-container input {
-      font-size: 1rem; /* Ensure input font size is readable */
+    font-size: 0.9rem;
+    padding: 0.6rem 0.6rem 0.6rem 2rem;
+  }
+
+  button {
+    font-size: 1rem;
+    padding: 0.75rem;
+    width: 100%; /* Full-width button */
   }
 }
-@media (max-width: 480px) {
-  .reservation__container {
-      padding: 1rem; /* Adjust padding for mobile */
+
+/* Media query for 320px screens */
+@media (max-width: 320px) {
+  form {
+    grid-template-columns: 1fr; /* Ensure single column layout on small screens */
+    gap: 1rem; /* Adjust spacing between elements */
   }
 
-  .reservation__bg-1,
-  .reservation__bg-2 {
-      display: none; /* Hide images on smaller screens for better readability */
+  .reservation__container h2 {
+    font-size: 1.6rem; /* Adjust heading size for smaller screens */
   }
 
-  /* Adjust input font size and ensure readability */
-  .reservation__container input {
-      font-size: 1rem; /* Ensure input font size is readable */
-      padding: 0.75rem 1rem; /* Adjust padding */
-      
+  .input-container input {
+    font-size: 0.85rem; /* Slightly reduce input font size */
+    padding: 0.6rem 0.6rem 0.6rem 2rem; /* Adjust padding for better alignment */
   }
 
-  
   .input-container i {
-    
-
-      top: 50%;
-      transform: translateY(-50%);
-      color: black; /* Adjust icon color */
-      font-size: 1rem; /* Adjust icon size */
+    font-size: 1rem; /* Adjust icon size */
   }
 
-  .reservation__container button {
-      font-size: 1rem; /* Adjust button font size for mobile */
-  }
-}
-@media (min-width: 390px) and (max-width: 844px) {
-  .reservation__container form {
-      grid-template-columns: 1fr; /* Maintain single column layout */
+  /* PEOPLE input box and FIND TABLE button remain as single-column elements */
+  form input:nth-child(5), 
+  form button {
+    grid-column: span 1; /* Single-column layout on mobile */
+    width: 100%;
   }
 
-  .reservation__container input {
-      font-size: 1rem; /* Ensure input fields are readable */
-      width: 100%; /* Make sure all inputs are equal size */
-      
+  button {
+    font-size: 1rem;
+    padding: 0.6rem; /* Adjust button padding for smaller screens */
   }
-
-  .reservation__container button {
-      width: 100%; /* Full-width button */
-      font-size: 1rem; /* Ensure button text is readable */
-  }
-}
-
-/* Background image positioning */
-.reservation img {
-  position: absolute;
-  z-index: -1;
-  opacity: 0.7;
-  object-fit: cover;
-}
-
-.reservation__bg-1 {
-  left: 0;
-  top: 0;
-  width: clamp(100px, 25vw, 350px);
-}
-
-.reservation__bg-2 {
-  right: 0;
-  bottom: 0;
-  width: clamp(100px, 20vw, 250px);
 }
 
   /* Footer styles */

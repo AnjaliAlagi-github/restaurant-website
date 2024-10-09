@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
        <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
 
     <link rel="stylesheet" href="style.css">
     <title>Resto Home</title>
@@ -262,31 +263,35 @@
 
 
          <section class="reservation" id="contact">
-            <div class="section__container reservation__container">
-              <h3>RESERVATION</h3>
-              <h2 class="section__header">BOOK YOUR TABLE</h2>
-              <form action="/">
-                <input type="text" placeholder="NAME" />
-                <input type="email" placeholder="EMAIL" />
-                <input type="date" placeholder="DATE" />
-                <input type="time" placeholder="TIME" />
-                <input type="number" placeholder="PEOPLE" />
-                <button class="btn" type="submit">FIND TABLE</button>
-              </form>
-            </div>
-              <img
-              src="./Public/penne-pasta-tomato-sauce-with-chicken-tomatoes-wooden-table.jpg"
-              alt="reservation"
-              class="reservation__bg-1"
-            />
-            <img
-              src="./Public/chicken-skewers-with-slices-sweet-peppers-dill.jpg"
-              alt="reservation"
-              class="reservation__bg-2"
-            />
-           
-          </section>
-
+          <div class="reservation__container">
+            <h3>RESERVATION</h3>
+            <h2>BOOK YOUR TABLE</h2>
+            <form>
+              <div class="input-container">
+                <i class="fas fa-user"></i>
+                <input type="text" placeholder="Name" required />
+              </div>
+              <div class="input-container">
+                <i class="fas fa-envelope"></i>
+                <input type="email" placeholder="Email" required />
+              </div>
+              <div class="input-container">
+                <i class="fas fa-calendar-alt"></i>
+                <input type="date" required />
+              </div>
+              <div class="input-container">
+                <i class="fas fa-clock"></i>
+                <input type="time" required />
+              </div>
+              <div class="input-container">
+                <i class="fas fa-users"></i>
+                <input type="number" placeholder="People" required />
+              </div>
+              <button type="submit">FIND TABLE</button>
+            </form>
+          </div>
+        </section>
+        
           <section class="reviews" id="reviews">
             <div class="reviews__container">
                 <h2 class="reviews__header">What Our Customers Say</h2>

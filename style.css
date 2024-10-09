@@ -891,7 +891,7 @@
   }
 
   .reservation__bg-1, .reservation__bg-2 {
-      display: none; /* Hide images on smaller screens for better readability */
+      display: none; 
   }
 
   /* Additional styling for input fields */
@@ -918,8 +918,8 @@
 
   
   .input-container i {
-      position: absolute;
-      left: 0.75rem; /* Position icon */
+    
+
       top: 50%;
       transform: translateY(-50%);
       color: black; /* Adjust icon color */

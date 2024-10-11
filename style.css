@@ -1114,7 +1114,7 @@ button:hover {
 @media (max-width: 480px), (max-width: 468px) {
   .footer {
     flex-direction: column; 
-    align-items: center;
+    align-items: start;
   }
 
   .footer .text {

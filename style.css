@@ -687,7 +687,7 @@
     
     justify-content: start;
     text-align: start;
-    font-size: 0.5rem;
+    font-size: 1rem;
   }
   nav .header i {
     
@@ -892,98 +892,7 @@ button:hover {
     padding: 0.6rem; /* Adjust button padding for smaller screens */
   }
 }
-  /* Footer styles */
-  .footer {
-    background-color: #000;
-    color: #fff;
-    padding: 50px 20px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-  }
   
-  .footer-section {
-    color: white;
-    flex: 1 1 200px;
-    margin: 10px;
-    max-width: 300px;
-  }
-  
-  .footer-section h3 {
-    color: #ff6600;
-    font-size: 1.4rem;
-    margin-bottom: 15px;
-    font-family: 'Arial', sans-serif;
-  }
-  
-  .footer-section p, .footer-section li {
-    color: white;
-    font-size: 1rem;
-    line-height: 1.6;
-    margin-bottom: 8px;
-    list-style: none;
-    cursor: pointer;
-  }
-  
-  .footer-section ul {
-    padding: 0;
-  }
-  
-  .footer-bottom {
-    width: 100%;
-    text-align: center;
-    margin-top: 30px;
-    border-top: 1px solid #ff6600;
-    padding-top: 15px;
-  }
-  
-  .footer-bottom p, .footer-bottom a {
-    color: #fff;
-    font-size: 1rem;
-    margin: 0 10px;
-  }
-  
-  .footer-bottom a {
-    text-decoration: none;
-    color: #ff6600;
-  }
-  
-  .footer-bottom a:hover {
-    text-decoration: underline;
-  }
-  
-  /* Responsive design */
-  @media (max-width: 768px) {
-    .footer {
-        flex-direction: column;
-        align-items: start;
-    }
-  
-    .footer-section {
-        margin: 10px 0;
-        max-width: 100%;
-    }
-  
-    .footer-bottom {
-        margin-top: 20px;
-    }
-  }
-  
-  @media (max-width: 480px) {
-    .footer-section h3 {
-        font-size: 1.2rem;
-    }
-  
-    .footer-section p, .footer-section li {
-        font-size: 1rem;
-  
-    }
-  
-    .footer-bottom p, .footer-bottom a {
-        font-size: 1rem;
-        margin-top: 20px;
-    }
-  }
  /* @media (max-width: 480px) {
     .reservation__container form {
         grid-template-columns: 1fr;
@@ -1099,38 +1008,94 @@ button:hover {
     }
 }
 
+.footer {
+  background-color: #000;
+  color: #fff;
+  padding: 50px 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.footer-section {
+  color: white;
+  flex: 1 1 200px;
+  margin: 10px;
+  max-width: 300px;
+}
+
+.footer-section h3 {
+  color: #ff6600;
+  font-size: 1.4rem;
+  margin-bottom: 15px;
+  font-family: 'Arial', sans-serif;
+}
+
+.footer-section p, .footer-section li {
+  color: white;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 8px;
+  list-style: none;
+  cursor: pointer;
+}
+
+.footer-section ul {
+  padding: 0;
+}
+
+.footer-bottom {
+  width: 100%;
+  text-align: center;
+  margin-top: 30px;
+  border-top: 1px solid #ff6600;
+  padding-top: 15px;
+}
+
+.footer-bottom p, .footer-bottom a {
+  color: #fff;
+  font-size: 1rem;
+  margin: 0 10px;
+}
+
+.footer-bottom a {
+  text-decoration: none;
+  color: #ff6600;
+}
+
+.footer-bottom a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive design */
 @media (max-width: 768px) {
   .footer {
-    flex-wrap: wrap;
-    text-align: center;
+      flex-direction: column;
+      align-items: start;
   }
 
-  .footer .text {
-    flex-basis: 45%; 
-    margin-bottom: 20px;
-  }
-}
-
-@media (max-width: 480px), (max-width: 468px) {
-  .footer {
-    flex-direction: column; 
-    align-items: start;
+  .footer-section {
+      margin: 10px 0;
+      max-width: 100%;
   }
 
-  .footer .text {
-    flex-basis: 100%; 
-    margin-bottom: 20px;
-  }
-
-  .footer h3 {
-    font-size: 18px;
-  }
-
-  .footer p {
-    font-size: 14px;
-    text-align: start;
+  .footer-bottom {
+      margin-top: 20px;
   }
 }
 
+@media (max-width: 480px) {
+  .footer-section h3 {
+      font-size: 1.2rem;
+  }
 
- 
+  .footer-section p, .footer-section li {
+      font-size: 1rem;
+
+  }
+
+  .footer-bottom p, .footer-bottom a {
+      font-size: 1rem;
+      margin-top: 20px;
+  }
+}

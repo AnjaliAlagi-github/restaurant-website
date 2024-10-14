@@ -7,7 +7,7 @@
 
   body {
     font-family: "Arial sans-serif";
-    /*background-color:rgb(247, 235, 216);*/
+
     background-color: black;
     width: 100%;
   }
@@ -166,14 +166,14 @@
       .left {
         padding-right: 0;
         margin-bottom: 30px;
-        align-items: center; /* Centering content */
-        justify-content: center; /* Centering content */
+        align-items: center; 
+        justify-content: center; 
       }
     
       .left .btn {
-        margin: 0 auto; /* Center the button */
-        padding: 10px 20px;
-        font-size: 1rem;
+        margin: 0 auto; 
+        padding: 8px 15px;
+        font-size: 0.9rem; 
       }
   
     .right {
@@ -210,6 +210,7 @@
       .left p {
         font-size: 0.9rem;
         text-align: start;
+        
       }
     
       .left .btn {
@@ -217,7 +218,7 @@
         padding: 8px 15px;
         font-size: 0.9rem;
         justify-content: center;
-        text-align: left;
+        text-align: center;
       }
   }
   .card-container {
@@ -350,7 +351,7 @@
     font-weight: bold;
     font-style: italic;
     color: orange;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
 }
 
 .main h5 {
@@ -462,6 +463,7 @@
 
     .main h4 {
         font-size: 22px;
+        
     }
 
     .main h5 {
@@ -474,6 +476,7 @@
 
     .btn {
         padding: 10px 20px;
+        width:40%;
         font-size: 14px;
     }
     .banner {
@@ -492,41 +495,43 @@
 }
 @media (max-width: 480px) {
     section.next {
-        padding: 10px; /* Reduced padding for smaller screens */
+        padding: 10px; 
     }
 
     .block {
-        flex-direction: column; /* Stack images and main content vertically */
-        gap: 10px; /* Reduced gap for smaller screens */
+        flex-direction: column; 
+        gap: 10px; 
     }
 
     .images {
         width: 100%;
-        gap: 5px; /* Reduced space between images */
+        gap: 5px; 
     }
 
     .images img {
-        flex: 1 1 100%; /* Each image takes 100% width */
-        height: auto; /* Maintain aspect ratio */
+        flex: 1 1 100%; 
+        height: auto; 
     }
 
     .main {
         width:100%;
-        text-align: center; /* Center-align text */
+        text-align: center; 
     }
 
     .main h4 {
-        font-size: 20px; /* Adjust font size for small screens */
+        font-size: 20px; 
         margin-bottom: 10px;
     }
 
     .main h5 {
         font-size: 18px;
         margin-bottom: 10px;
+        text-align: center;
+        margin: auto;
     }
 
     .main p {
-        font-size: 12px; /* Adjust font size for readability */
+        font-size: 12px; 
         line-height: 1.5;
         margin-bottom: 15px;
         text-align: start;
@@ -534,7 +539,8 @@
 
     .btn {
         padding: 8px 15px;
-        font-size: 12px; /* Adjust button font size */
+        font-size: 12px; 
+      
     }
 }
 
@@ -545,6 +551,7 @@
 }
 
 .upper h2{
+  margin-top: 30px;
     color :white;
     font-size: 24px;
 }
@@ -557,7 +564,7 @@
     justify-content: center;
     align-items: center;
     gap: 1rem;
-    padding: 2rem;
+    padding: 2rem
     
     
   }
@@ -576,9 +583,11 @@
 
   .banner .icon i {
     font-size: 2rem;
+    margin-top: 30px;
   }
   .menu-card {
-    padding: 40px 10px;
+    
+    
     background-color: black;
 }
 
@@ -591,8 +600,7 @@
     font-size: 30px;
     color: white;
     font-family: 'Playfair Display', serif;
-    text-align: center;
-    
+    text-align: center; 
     letter-spacing: 2px;
 }
 
@@ -655,9 +663,10 @@
   background-color: orange;
   color: #fff;
   border: none;
-  border-radius: 5px;
+  border-radius: 12px;
   cursor: pointer;
   transition: background-color 0.3s;
+  font-size: 10px;
 }
 
 .order-btn:hover {
@@ -737,6 +746,7 @@
 @media (max-width: 480px) {
     .menu-grid {
         grid-template-columns: 1fr; /* Stack items vertically on small screens */
+        object-fit: cover;
     }
 
     .menu-title {
@@ -749,6 +759,7 @@
 
     .order-btn {
         padding: 6px 12px;
+        width: 40%;
         font-size: 10px;
     }
     
@@ -1097,5 +1108,48 @@ button:hover {
   .footer-bottom p, .footer-bottom a {
       font-size: 1rem;
       margin-top: 20px;
+  }
+
+}
+
+
+@media (max-width: 768px) {
+  .upper h2 {
+    font-size: 1.5rem;
+  }
+
+  .banner {
+    flex-direction: column; /* Stack the icons vertically */
+    gap: 1.5rem;
+  }
+
+  .banner .icon i {
+    font-size: 2rem;
+  }
+
+  .banner .icon h2 {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .menucard {
+    padding: 1rem;
+  }
+
+  .upper h2 {
+    font-size: 22px;
+  }
+
+  .banner {
+    gap: 1rem;
+  }
+
+  .banner .icon i {
+    font-size: 1.8rem;
+  }
+
+  .banner .icon h2 {
+    font-size: 20px;
   }
 }

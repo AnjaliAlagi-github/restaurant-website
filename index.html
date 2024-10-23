@@ -23,9 +23,14 @@
         <a href="About.html" class="link">About</a>
         <a href="menu.html" class="link">Food Menu</a>
         <a href="order.html" class="link">Online Order</a>
+        
         <a href="contact.html" class="link">Contact</a>
         <a href="reserve.html" class="link active">Reserve Table</a>
+        <span class="cart-icon" onclick="window.location.href='addtocart.html'">
+          <i class="fa-solid fa-cart-shopping"></i> Cart (<span id="cart-count">0</span>)
+        <style color="orange"> </style> </span>
     </div>
+ 
 </nav>
       <section class="container">
         <div  class="left">
@@ -105,6 +110,7 @@
                 <div class="display">
                     <section class="menu-card">
                         <div class="container">
+
                 
                           
                  
@@ -118,7 +124,7 @@
                                 <p class="menu-description">Delicious and flavorful Burger.</p>
                                 <div class="menu-bottom">
                                   <span class="menu-price">100 Rs</span>
-                                  <button class="order-btn">Order Now</button>
+                                  <button class="order-btn" onclick="addToCart('Aloo Tika Burger', 300)">Order Now</button>
                                 </div>
                               </div>
                             </div>
@@ -132,7 +138,7 @@
                                 <p class="menu-description">Delicious and flavorful Biryani.</p>
                                 <div class="menu-bottom">
                                   <span class="menu-price">300 Rs</span>
-                                  <button class="order-btn">Order Now</button>
+                                  <button class="order-btn" onclick="addToCart('Biryani', 200)">Order Now</button>
                                 </div>
                               </div>
                             </div>
@@ -146,7 +152,7 @@
                                 <p class="menu-description">Delicious and flavorful Frenchfries.</p>
                                 <div class="menu-bottom">
                                   <span class="menu-price">100 Rs</span>
-                                  <button class="order-btn">Order Now</button>
+                                  <button class="order-btn" onclick="addToCart('Perry Perry Frenchfries', 150)">Order Now</button>
                                 </div>
                               </div>
                             </div>
@@ -160,7 +166,7 @@
                                 <p class="menu-description">Delicious and flavorful Pizza.</p>
                                 <div class="menu-bottom">
                                   <span class="menu-price">280 Rs</span>
-                                  <button class="order-btn">Order Now</button>
+                                  <button class="order-btn" onclick="addToCart('Margerihita Pizza', 300)">Order Now</button>
                                 </div>
                               </div>
                             </div>
@@ -174,7 +180,7 @@
                                 <p class="menu-description">Delicious and flavorful dish Frenchfries</p>
                                 <div class="menu-bottom">
                                   <span class="menu-price">150 Rs</span>
-                                  <button class="order-btn">Order Now</button>
+                                  <button class="order-btn" onclick="addToCart('Frenchfries', 200)">Order Now</button>
                                 </div>
                               </div>
                             </div>
@@ -188,7 +194,7 @@
                                 <p class="menu-description">Delicious and flavorful dish Burger</p>
                                 <div class="menu-bottom">
                                   <span class="menu-price">200 Rs</span>
-                                  <button class="order-btn">Order Now</button>
+                                  <button class="order-btn" onclick="addToCart('Veg Burger', 150)">Order Now</button>
                                 </div>
                               </div>
                             </div>
@@ -202,7 +208,7 @@
                                 <p class="menu-description">Delicious and flavorful Peshwai Rice.</p>
                                 <div class="menu-bottom">
                                   <span class="menu-price">350 Rs</span>
-                                  <button class="order-btn">Order Now</button>
+                                  <button class="order-btn" onclick="addToCart('Noodles', 200)">Order Now</button>
                                 </div>
                               </div>
                             </div>
@@ -216,7 +222,7 @@
                                 <p class="menu-description">Delicious and flavorful Panner Pizza.</p>
                                 <div class="menu-bottom">
                                   <span class="menu-price">$17</span>
-                                  <button class="order-btn">Order Now</button>
+                                  <button class="order-btn" onclick="addToCart('Paneer Pizza', 150)">Order Now</button>
                                 </div>
                               </div>
                             </div>
@@ -229,7 +235,7 @@
                                 <p class="menu-description">Delicious and flavorful dish Burger</p>
                                 <div class="menu-bottom">
                                   <span class="menu-price">200 Rs</span>
-                                  <button class="order-btn">Order Now</button>
+                                  <button class="order-btn" onclick="addToCart('Burger', 200)">Order Now</button>
                                 </div>
                               </div>
                             </div>
@@ -243,7 +249,7 @@
                                 <p class="menu-description">Delicious and flavorful Masala Fries</p>
                                 <div class="menu-bottom">
                                   <span class="menu-price">$18</span>
-                                  <button class="order-btn">Order Now</button>
+                                  <button class="order-btn" onclick="addToCart('Masala Fries', 200)">Order Now</button>
                                 </div>
                               </div>
                             </div>
@@ -276,11 +282,11 @@
                 <input type="email" placeholder="Email" required />
               </div>
               <div class="input-container">
-                <i class="fas fa-calendar-alt"></i>
+            
                 <input type="date" required />
               </div>
               <div class="input-container">
-                <i class="fas fa-clock"></i>
+              
                 <input type="time" required />
               </div>
               <div class="input-container">
@@ -370,16 +376,65 @@
           </div>
       </div>
       
-          <script src="https://unpkg.com/scrollreveal"></script>
-          <script src="main.js"></script>
-          <script>
-            const hamburger = document.getElementById('hamburger');
-            const navLinks = document.getElementById('navLinks');
+      <div id="cart-sidebar" class="cart-sidebar">
+        <div class="cart-header">
+            <h2>Your Cart</h2>
+            <button id="close-cart"><i class='bx bx-x'></i></button>
+        </div>
+        <div class="cart-items" id="cart-items">
+            <!-- Cart items will be dynamically added here -->
+        </div>
+        <div class="cart-summary">
+            <p>Total Items: <span id="total-items">0</span></p>
+            <p>Total Amount: <span id="total-amount">0</span> Rs</p>
+        </div>
+        <button id="checkout" class="btn">Checkout</button>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="main.js"></script>
+    <script src="cart.js"></script>
+    <script>
+        // Hamburger Menu Toggle
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+    </script>
+    <script>
+      function addToCart(itemName, itemPrice) {
+        // Get the cart from local storage or create a new one
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        
+        // Check if the item is already in the cart
+        const existingItem = cart.find(item => item.name === itemName);
+        
+        if (existingItem) {
+            existingItem.quantity += 1; // Increase quantity if item exists
+        } else {
+            cart.push({ name: itemName, price: itemPrice, quantity: 1 }); // Add new item
+        }
+        
+        // Save the updated cart back to local storage
+        localStorage.setItem('cart', JSON.stringify(cart));
+        
+        // Update cart count display
+        const cartCount = cart.reduce((acc, item) => acc + item.quantity, 0);
+        document.getElementById('cart-count').innerText = cartCount;
+    }
+
+    // Update the cart count on page load
+    window.onload = function() {
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+        const cartCount = cart.reduce((acc, item) => acc + item.quantity, 0);
+        document.getElementById('cart-count').innerText = cartCount;
+    }
+  </script>
+    </script>
     
-            hamburger.addEventListener('click', () => {
-                navLinks.classList.toggle('active');
-            });
-          </script>
         </body>
       </html>
         

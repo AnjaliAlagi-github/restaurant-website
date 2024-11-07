@@ -1,285 +1,340 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Add to Cart</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <style>
-    body {
-        font-family: 'Arial', sans-serif;
-        background-color: #f0f0f0;
-        margin: 0;
-        padding: 0;
-    }
-
-    /* Navbar Styles */
-    .navbar {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        background-color: black;
-        padding: 15px 30px;
-        color: orange;
-        font-size: 20px;
-    }
-
-    .navbar h1 {
-        font-size: 20px;
-    }
-
-    .cart-icon {
-        font-size: 30px;
-        cursor: pointer;
-    }
-
-    /* Cart Section */
-    .cart-container {
-        width: 90%;
-        max-width: 800px;
-        margin: 30px auto;
-        background-color: white;
-        padding: 20px;
-        border-radius: 10px;
-        box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
-    }
-
-    .cart-container h2 {
-        text-align: center;
-        margin-bottom: 20px;
-    }
-
-    .cart-table {
-        width: 100%;
-        border-collapse: collapse;
-    }
-
-    .cart-table th, .cart-table td {
-        padding: 10px;
-        text-align: center;
-        border-bottom: 1px solid #ddd;
-        font-size: 16px;
-    }
-
-    .cart-table th {
-        background-color: orange;
-        color: white;
-    }
-
-    .cart-table td {
-        background-color: #f9f9f9;
-    }
-
-    .cart-btn {
-        padding: 8px 16px;
-        border: none;
-        color: white;
-        background-color: orange;
-        cursor: pointer;
-        border-radius: 5px;
-        font-size: 14px;
-    }
-
-    .cart-btn:hover {
-        background-color: black;
-    }
-
-    #buy-now {
-      background-color: #4caf50;
-      color: white;
-      border-radius: 5px;
-      border-style: none;
-      padding: 10px 20px;
-      font-size: 14px;
-    }
-
-    /* Cart Footer */
-    .cart-footer {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-top: 20px;
-    }
-
-    .cart-footer h3 {
-      font-size: 18px;
-      margin: 0;
-    }
-
-    /* Responsive Styles */
-    @media (max-width: 768px) {
-        .cart-container {
-            width: 95%;
-            padding: 15px;
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Order Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <style>
+        /* General Styles */
+        body {
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
         }
 
-        .cart-table th, .cart-table td {
-            font-size: 14px;
-            padding: 8px;
-        }
-
-        .cart-btn {
-            font-size: 12px;
-            padding: 6px 12px;
-        }
-
-        .cart-footer h3 {
-            font-size: 16px;
-        }
-
-        #buy-now {
-            padding: 8px 16px;
-            font-size: 12px;
-        }
-    }
-
-    @media (max-width: 480px) {
-        .navbar {
-            
-             padding: 10px;
-            font-size: 18px;
-        }
-
-        .cart-icon {
+        h1, h2, h3 {
+            color: orange;
+            font-style: italic;
             font-size: 24px;
         }
 
-        .cart-table, .cart-table th, .cart-table td {
-            font-size: 12px;
-            padding: 6px;
+        /* Navbar Styles */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px 20px;
+            background-color: #333;
+            align-items: center;
         }
 
-        .cart-footer {
-            flex-direction: column;
-            text-align: center;
+        .navbar h1 {
+            color: orange;
+            margin: 0;
         }
 
-        .cart-footer h3 {
+        .navbar .menu a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+            font-weight: bold;
+        }
+
+        /* Container Styles */
+        .container {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+            flex-wrap: wrap;
+        }
+
+        .left-section, .right-section {
+            width: 48%;
+            padding: 10px;
+            background-color: #222;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        /* Account Card */
+        .account-card {
+            margin-bottom: 15px;
+            padding: 15px;
+            background-color: #333;
+            border-radius: 5px;
+        }
+
+        .account-card h3 {
             margin-bottom: 10px;
         }
 
-        .cart-btn, #buy-now {
-            width: 100%;
-            padding: 8px;
+        .account-card .button-container {
+            display: flex;
+            flex-direction: column;
+        }
+
+        button {
+            width: 30%; /* Reduced width of all buttons */
+            padding: 8px; /* Reduced padding */
+            border-radius: 5px;
             font-size: 14px;
+            cursor: pointer;
             margin: 5px 0;
+            text-align: center;
+            background-color: orange;
         }
-    }
-  </style>
+        
+        /* Specific Button Styles */
+        .login-btn, .signup-btn, .cart-btn {
+            width: 20%; /* Set all button widths to 80% */
+        }
+        
+        /* Hover Effects */
+        button:hover {
+            background-color: #ffcc00;
+            color: black;
+        }
+
+        /* Address and Payment Section */
+        .address-input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: none;
+            border-radius: 5px;
+            background-color: #444;
+            color: white;
+        }
+
+        .payment-options label {
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+        }
+
+        .payment-options input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        .cart-table {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+            background-color: white;
+            color: black;
+        }
+
+        .cart-table th, .cart-table td {
+            padding: 12px;
+            border: 1px solid #444;
+        }
+
+        .total-section {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 15px;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        /* Image Styles */
+        .account-image {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+
+        /* Buy Now & Clear Cart Button Styles */
+        .cart-btn {
+            background-color: orange;
+            color:black;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 10px;
+            width: 30%;
+            text-align: center;
+        }
+
+        .cart-btn:hover {
+            background-color: #ffcc00;
+            color: black;
+        }
+
+        /* Footer Styles */
+        .footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 30px;
+        }
+
+        .footer p {
+            margin: 5px 0;
+            color: white;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                padding: 15px;
+            }
+
+            .left-section, .right-section {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+
+            .navbar h1, .navbar .menu {
+                font-size: 18px;
+            }
+        }
+    </style>
 </head>
-
 <body>
-
-  <!-- Navbar -->
-  <nav class="navbar">
-    <h1>Your Cart</h1>
-    <span class="cart-icon" onclick="window.location.href='index.html'">
-      <i class="fa-solid fa-arrow-left"></i> Back to Menu
-    </span>
-  </nav>
-
-  <!-- Cart Section -->
-  <section class="cart-container">
-    <h2>Your Cart</h2>
-
-    <!-- Cart Table -->
-    <div class="cart-table-wrapper">
-      <table class="cart-table">
-        <thead>
-          <tr>
-            <th>Item #</th>
-            <th>Item Name</th>
-            <th>Price</th>
-            <th>Quantity</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody id="cart-items">
-          <!-- Dynamic Cart Rows Here -->
-        </tbody>
-      </table>
+    <!-- Navbar -->
+    <div class="navbar">
+        <h1>Unique Restaurant</h1>
+        <div class="menu">
+            <a href="menu.html">Menu</a>
+            <a href="index.html">Order Items</a>
+            <a href="about.html">About Us</a>
+            <a href="contact.html">Contact</a>
+        </div>
     </div>
 
-    <!-- Cart Footer -->
-    <div class="cart-footer">
-      <h3>Total: <span id="cart-total">0 Rs</span></h3>
-      <button id="clear-cart" class="cart-btn">Clear Cart</button>
-      <button id="buy-now">Buy Now</button>
+    <!-- Main Content -->
+    <h2 style="text-align: center; margin: 20px 0;">Order Your Favorite Food Online</h2>
+    <div class="container">
+        <!-- Left Section (Account, Address, Payment) -->
+        <div class="left-section">
+            <div class="account-card">
+                <h3>Account</h3>
+                <div class="button-container">
+                    <p>Have an account?</p>
+                    <button class="login-btn" onclick="login()">Login</button>
+                    <p>New User</p>
+                    <button class="signup-btn" onclick="signup()">Sign Up</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Delivery Address</h3>
+                <input type="text" class="address-input" placeholder="Enter your address" id="delivery-address" />
+            </div>
+
+            <div class="card">
+                <h3>Payment Mode</h3>
+                <div class="payment-options">
+                    <label><input type="radio" name="payment" value="cash" checked> <i class="fa fa-money-bill-alt icon"></i> Cash on Delivery</label>
+                    <label><input type="radio" name="payment" value="credit"> <i class="fa fa-credit-card icon"></i> Credit Card</label>
+                    <label><input type="radio" name="payment" value="paypal"> <i class="fa fa-paypal icon"></i> PayPal</label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Section (Cart and Image) -->
+        <div class="right-section">
+            <h2>Your Cart</h2>
+            <table class="cart-table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Item</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="cart-items"></tbody>
+            </table>
+            <div class="total-section">
+                <span>Total:</span>
+                <span id="cart-total">0 Rs</span>
+            </div>
+            <button id="clear-cart" class="cart-btn">Clear Cart</button>
+            <button id="buy-now" class="cart-btn">Buy Now</button>
+            <a href="index.html"><button id="add-more-items" class="cart-btn">Add More Items</button></a>
+            
+            <!-- Account Image -->
+            <img src="./Public/freepik__expand__85936.png" alt="Food Image" class="account-image">
+        </div>
     </div>
-  </section>
 
-  <!-- JavaScript -->
-  <script>
-    let cart = JSON.parse(localStorage.getItem('cart')) || [
-        { name: 'Item 1', price: 100, quantity: 1 },
-        { name: 'Item 2', price: 200, quantity: 1 },
-        { name: 'Item 3', price: 300, quantity: 1 }
-    ];
+    <!-- Footer -->
+    <div class="footer">
+        <p>&copy; 2024 Restaurant Name. All Rights Reserved.</p>
+        <p><a href="#privacy">Privacy Policy</a> | <a href="#terms">Terms of Service</a></p>
+    </div>
 
-    function updateCartDisplay() {
-        const cartItemsElement = document.getElementById('cart-items');
-        cartItemsElement.innerHTML = ''; // Clear previous items
-
-        if (cart.length === 0) {
-            cartItemsElement.innerHTML = '<tr><td colspan="5">No items in the cart.</td></tr>';
-        } else {
+    <script>
+        // JavaScript for Cart Functionality
+        let cart = JSON.parse(localStorage.getItem('cart')) || [
+            { name: 'Pizza', price: 150, quantity: 1 },
+            { name: 'Burger', price: 80, quantity: 1 }
+        ];
+    
+        function updateCartDisplay() {
+            const cartItemsElement = document.getElementById('cart-items');
+            cartItemsElement.innerHTML = ''; // Clear previous items
             let total = 0;
-            cart.forEach((item, index) => {
-                total += item.price * item.quantity;
-                const row = document.createElement('tr');
-                row.innerHTML = `
-                    <td>${index + 1}</td>
-                    <td>${item.name}</td>
-                    <td>${item.price} Rs</td>
-                    <td>
-                        <button class="cart-btn" onclick="decreaseQuantity('${item.name}')">-</button>
-                        ${item.quantity}
-                        <button class="cart-btn" onclick="increaseQuantity('${item.name}')">+</button>
-                    </td>
-                    <td><button class="cart-btn" onclick="removeFromCart('${item.name}')">Remove</button></td>
-                `;
-                cartItemsElement.appendChild(row);
-            });
-            document.getElementById('cart-total').innerText = total + ' Rs';
+    
+            if (cart.length === 0) {
+                cartItemsElement.innerHTML = '<tr><td colspan="5">No items in the cart.</td></tr>';
+            } else {
+                cart.forEach((item, index) => {
+                    total += item.price * item.quantity;
+                    cartItemsElement.innerHTML += `
+                        <tr>
+                            <td>${index + 1}</td>
+                            <td>${item.name}</td>
+                            <td>${item.price} Rs</td>
+                            <td>
+                                <button onclick="changeQuantity(${index}, 1)" class="increase-quantity">+</button>
+                                ${item.quantity}
+                                <button onclick="changeQuantity(${index}, -1)" class="decrease-quantity">-</button>
+                            </td>
+                            <td><button onclick="deleteItem(${index})" class="delete-btn"><i class="fa fa-trash" style="color: ;"></i></button></td>
+                        </tr>
+                    `;
+                });
+            }
+            document.getElementById('cart-total').innerText = total + " Rs";
         }
-    }
-
-    function increaseQuantity(itemName) {
-        cart = cart.map(item => {
-            if (item.name === itemName) {
-                item.quantity += 1;
+    
+        function changeQuantity(index, change) {
+            if (cart[index].quantity + change > 0) {
+                cart[index].quantity += change;
+                localStorage.setItem('cart', JSON.stringify(cart));
+                updateCartDisplay();
             }
-            return item;
+        }
+    
+        function deleteItem(index) {
+            cart.splice(index, 1);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateCartDisplay();
+        }
+    
+        // Initial cart display
+        updateCartDisplay();
+    
+        document.getElementById('clear-cart').addEventListener('click', () => {
+            localStorage.removeItem('cart');
+            cart = [];
+            updateCartDisplay();
         });
-        localStorage.setItem('cart', JSON.stringify(cart));
-        updateCartDisplay();
-    }
-
-    function decreaseQuantity(itemName) {
-        cart = cart.map(item => {
-            if (item.name === itemName && item.quantity > 1) {
-                item.quantity -= 1;
-            }
-            return item;
+    
+        document.getElementById('buy-now').addEventListener('click', () => {
+            alert('Proceeding to checkout...');
         });
-        localStorage.setItem('cart', JSON.stringify(cart));
-        updateCartDisplay();
-    }
-
-    function removeFromCart(itemName) {
-        cart = cart.filter(item => item.name !== itemName);
-        localStorage.setItem('cart', JSON.stringify(cart));
-        updateCartDisplay();
-    }
-
-    document.getElementById('clear-cart').addEventListener('click', function() {
-        cart = [];
-        localStorage.setItem('cart', JSON.stringify(cart));
-        updateCartDisplay();
-    });
-
-    // Update the cart display on page load
-    window.onload = updateCartDisplay;
-  </script>
+    </script>
 </body>
 </html>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Online Order Page</title>
+    <title>Responsive Online Order Page</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
     <style>
         /* General Styles */
@@ -14,32 +14,57 @@
             margin: 0;
             padding: 0;
         }
-
-        h1, h2, h3 {
+        h1 {
             color: orange;
-            font-style: italic;
             font-size: 24px;
+           text-align: center;
+        }
+
+        h2, h3 {
+
+            color: orange;
+            font-size: 24px;
+            align-items: left;
+            text-align: left;
         }
 
         /* Navbar Styles */
         .navbar {
             display: flex;
             justify-content: space-between;
+            align-items: center;
             padding: 15px 20px;
             background-color: #333;
-            align-items: center;
+            flex-wrap: wrap;
         }
 
         .navbar h1 {
             color: orange;
             margin: 0;
+            font-size: 20px;
+        }
+
+        .navbar .menu {
+            display: flex;
+            gap: 10px;
         }
 
         .navbar .menu a {
             color: white;
             text-decoration: none;
-            margin: 0 10px;
             font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .navbar .menu a:hover {
+            color: orange;
+        }
+
+        .menu-toggle {
+            display: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
         }
 
         /* Container Styles */
@@ -47,15 +72,18 @@
             display: flex;
             justify-content: space-between;
             padding: 20px;
+            gap: 20px;
             flex-wrap: wrap;
         }
 
         .left-section, .right-section {
+           
             width: 48%;
             padding: 10px;
             background-color: #222;
             border-radius: 10px;
-            margin-bottom: 20px;
+            box-sizing: border-box;
+            
         }
 
         /* Account Card */
@@ -64,37 +92,33 @@
             padding: 15px;
             background-color: #333;
             border-radius: 5px;
+            
         }
 
         .account-card h3 {
             margin-bottom: 10px;
         }
 
-        .account-card .button-container {
+        .button-container {
             display: flex;
-            flex-direction: column;
+            gap: 10px;
+            flex-wrap: wrap;
         }
 
         button {
-            width: 30%; /* Reduced width of all buttons */
-            padding: 8px; /* Reduced padding */
+            flex: 1;
+            padding: 8px;
             border-radius: 5px;
             font-size: 14px;
             cursor: pointer;
-            margin: 5px 0;
-            text-align: center;
             background-color: orange;
+            color: black;
+            transition: background-color 0.3s;
+            border: none;
         }
-        
-        /* Specific Button Styles */
-        .login-btn, .signup-btn, .cart-btn {
-            width: 20%; /* Set all button widths to 80% */
-        }
-        
-        /* Hover Effects */
+
         button:hover {
             background-color: #ffcc00;
-            color: black;
         }
 
         /* Address and Payment Section */
@@ -106,6 +130,7 @@
             border-radius: 5px;
             background-color: #444;
             color: white;
+            box-sizing: border-box;
         }
 
         .payment-options label {
@@ -118,6 +143,7 @@
             margin-right: 10px;
         }
 
+        /* Cart Table */
         .cart-table {
             width: 100%;
             margin-top: 20px;
@@ -127,10 +153,18 @@
         }
 
         .cart-table th, .cart-table td {
-            padding: 12px;
+            padding: 8px;
             border: 1px solid #444;
+            text-align: center;
+            font-size: 14px;
         }
 
+        /* Cart Table Responsive */
+        .cart-table-responsive {
+            overflow-x: auto;
+        }
+
+        /* Total Section */
         .total-section {
             display: flex;
             justify-content: space-between;
@@ -145,25 +179,6 @@
             height: auto;
             border-radius: 5px;
             margin-top: 20px;
-        }
-
-        /* Buy Now & Clear Cart Button Styles */
-        .cart-btn {
-            background-color: orange;
-            color:black;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-            margin-top: 10px;
-            width: 30%;
-            text-align: center;
-        }
-
-        .cart-btn:hover {
-            background-color: #ffcc00;
-            color: black;
         }
 
         /* Footer Styles */
@@ -181,19 +196,68 @@
         }
 
         /* Responsive Styles */
-        @media (max-width: 768px) {
+        @media (max-width: 1024px) {
+            /* Tablet and Mobile */
             .container {
                 flex-direction: column;
-                padding: 15px;
             }
 
             .left-section, .right-section {
                 width: 100%;
-                margin-bottom: 20px;
             }
 
-            .navbar h1, .navbar .menu {
+            .cart-table th, .cart-table td {
+                padding: 6px;
+                font-size: 13px;
+            }
+
+            h1, h2, h3 {
+                font-size: 20px;
+            }
+
+            button {
+                font-size: 13px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            /* Mobile */
+            .navbar h1 {
+                font-size: 16px;
+            }
+
+            .navbar .menu {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                text-align: center;
+                margin-top: 10px;
+                gap: 15px;
+            }
+
+            .navbar .menu a {
+                font-size: 14px;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            h1, h2, h3 {
                 font-size: 18px;
+            }
+
+            .total-section {
+                
+                flex-direction: column;
+                align-items: left;
+                text-align: left;
+            }
+
+            button {
+                margin-top: 20px;
+                font-size: 12px;
+                padding: 6px;
             }
         }
     </style>
@@ -202,6 +266,7 @@
     <!-- Navbar -->
     <div class="navbar">
         <h1>Unique Restaurant</h1>
+        <i class="fas fa-bars menu-toggle" onclick="toggleMenu()"></i>
         <div class="menu">
             <a href="menu.html">Menu</a>
             <a href="index.html">Order Items</a>
@@ -211,17 +276,15 @@
     </div>
 
     <!-- Main Content -->
-    <h2 style="text-align: center; margin: 20px 0;">Order Your Favorite Food Online</h2>
+    <h1>Order Your Favorite Food Online</h1>
     <div class="container">
         <!-- Left Section (Account, Address, Payment) -->
         <div class="left-section">
             <div class="account-card">
                 <h3>Account</h3>
                 <div class="button-container">
-                    <p>Have an account?</p>
-                    <button class="login-btn" onclick="login()">Login</button>
-                    <p>New User</p>
-                    <button class="signup-btn" onclick="signup()">Sign Up</button>
+                    <button class="login-btn">Login</button>
+                    <button class="signup-btn">Sign Up</button>
                 </div>
             </div>
 
@@ -233,9 +296,9 @@
             <div class="card">
                 <h3>Payment Mode</h3>
                 <div class="payment-options">
-                    <label><input type="radio" name="payment" value="cash" checked> <i class="fa fa-money-bill-alt icon"></i> Cash on Delivery</label>
-                    <label><input type="radio" name="payment" value="credit"> <i class="fa fa-credit-card icon"></i> Credit Card</label>
-                    <label><input type="radio" name="payment" value="paypal"> <i class="fa fa-paypal icon"></i> PayPal</label>
+                    <label><input type="radio" name="payment" value="cash" checked> Cash on Delivery</label>
+                    <label><input type="radio" name="payment" value="credit"> Credit Card</label>
+                    <label><input type="radio" name="payment" value="paypal"> PayPal</label>
                 </div>
             </div>
         </div>
@@ -243,27 +306,29 @@
         <!-- Right Section (Cart and Image) -->
         <div class="right-section">
             <h2>Your Cart</h2>
-            <table class="cart-table">
-                <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>Item</th>
-                        <th>Price</th>
-                        <th>Quantity</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody id="cart-items"></tbody>
-            </table>
+            <div class="cart-table-responsive">
+                <table class="cart-table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Item</th>
+                            <th>Price</th>
+                            <th>Quantity</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="cart-items"></tbody>
+                </table>
+            </div>
             <div class="total-section">
                 <span>Total:</span>
                 <span id="cart-total">0 Rs</span>
             </div>
-            <button id="clear-cart" class="cart-btn">Clear Cart</button>
-            <button id="buy-now" class="cart-btn">Buy Now</button>
-            <a href="index.html"><button id="add-more-items" class="cart-btn">Add More Items</button></a>
-            
-            <!-- Account Image -->
+            <div class="button-container">
+                <button id="clear-cart" class="cart-btn">Clear Cart</button>
+                <button id="buy-now" class="cart-btn">Buy Now</button>
+                <a href="index.html"><button id="add-more-items" class="cart-btn">Add More Items+</button></a>
+            </div>
             <img src="./Public/freepik__expand__85936.png" alt="Food Image" class="account-image">
         </div>
     </div>
@@ -275,66 +340,50 @@
     </div>
 
     <script>
-        // JavaScript for Cart Functionality
-        let cart = JSON.parse(localStorage.getItem('cart')) || [
-            { name: 'Pizza', price: 150, quantity: 1 },
-            { name: 'Burger', price: 80, quantity: 1 }
+        function toggleMenu() {
+            const menu = document.querySelector('.navbar .menu');
+            menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
+        }
+
+        const cartItems = [
+            { id: 1, name: 'Pizza', price: 500, quantity: 1 },
+            { id: 2, name: 'Burger', price: 300, quantity: 2 },
+            { id: 3, name: 'Pasta', price: 450, quantity: 1 },
         ];
-    
-        function updateCartDisplay() {
-            const cartItemsElement = document.getElementById('cart-items');
-            cartItemsElement.innerHTML = ''; // Clear previous items
-            let total = 0;
-    
-            if (cart.length === 0) {
-                cartItemsElement.innerHTML = '<tr><td colspan="5">No items in the cart.</td></tr>';
-            } else {
-                cart.forEach((item, index) => {
-                    total += item.price * item.quantity;
-                    cartItemsElement.innerHTML += `
-                        <tr>
-                            <td>${index + 1}</td>
-                            <td>${item.name}</td>
-                            <td>${item.price} Rs</td>
-                            <td>
-                                <button onclick="changeQuantity(${index}, 1)" class="increase-quantity">+</button>
-                                ${item.quantity}
-                                <button onclick="changeQuantity(${index}, -1)" class="decrease-quantity">-</button>
-                            </td>
-                            <td><button onclick="deleteItem(${index})" class="delete-btn"><i class="fa fa-trash" style="color: ;"></i></button></td>
-                        </tr>
-                    `;
-                });
-            }
-            document.getElementById('cart-total').innerText = total + " Rs";
+
+        function loadCartItems() {
+            const cartItemsContainer = document.getElementById('cart-items');
+            cartItemsContainer.innerHTML = cartItems.map(item =>
+                `<tr>
+                    <td>${item.id}</td>
+                    <td>${item.name}</td>
+                    <td>${item.price}</td>
+                    <td>${item.quantity}</td>
+                    <td><button onclick="removeItem(${item.id})">Remove</button></td>
+                </tr>`
+            ).join('');
+            calculateTotal();
         }
-    
-        function changeQuantity(index, change) {
-            if (cart[index].quantity + change > 0) {
-                cart[index].quantity += change;
-                localStorage.setItem('cart', JSON.stringify(cart));
-                updateCartDisplay();
+
+        function removeItem(id) {
+            const index = cartItems.findIndex(item => item.id === id);
+            if (index !== -1) {
+                cartItems.splice(index, 1);
+                loadCartItems();
             }
         }
-    
-        function deleteItem(index) {
-            cart.splice(index, 1);
-            localStorage.setItem('cart', JSON.stringify(cart));
-            updateCartDisplay();
+
+        function calculateTotal() {
+            const total = cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0);
+            document.getElementById('cart-total').textContent = `${total} Rs`;
         }
-    
-        // Initial cart display
-        updateCartDisplay();
-    
+
         document.getElementById('clear-cart').addEventListener('click', () => {
-            localStorage.removeItem('cart');
-            cart = [];
-            updateCartDisplay();
+            cartItems.length = 0;
+            loadCartItems();
         });
-    
-        document.getElementById('buy-now').addEventListener('click', () => {
-            alert('Proceeding to checkout...');
-        });
+
+        loadCartItems();
     </script>
 </body>
 </html>
